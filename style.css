@@ -1,20 +1,23 @@
 /* ==========================================================================
-   VARIABLES DE DISEÑO (Paleta elegante y psicología del color)
+   1. VARIABLES DE DISEÑO (AQUÍ CAMBIAS LOS COLORES POR LOS DE TU LOGO)
    ========================================================================== */
 :root {
-    --color-primario: #E63946; /* Tono beige/dorado: Elegancia y exclusividad */
-    --color-secundario: #f9f6f0; /* Fondo crema suave: Accesibilidad y calidez */
-    --color-texto: #E63946; /* Gris casi negro: Legibilidad y firmeza */
-    --color-blanco: #ffffff;
-    --color-whatsapp: #25d366; /* Verde original para reconocimiento inmediato */
+    /* Cambia "#c5a880" por el color principal de tu logo */
+    --color-primario: #E63946; 
     
-    --fuente-titulos: 'Playfair Display', serif; /* Tipografía clásica para transmitir sofisticación */
-    --fuente-textos: 'Montserrat', sans-serif; /* Tipografía limpia y moderna */
-    --fuente-logo: 'Pacifico', cursive;
+    /* Cambia "#f9f6f0" por el color de fondo que quieras (ahora es crema) */
+    --color-secundario: #D9A5A1; 
+    
+    --color-texto: #E63946;
+    --color-blanco: #ffffff;
+    --color-whatsapp: #25d366;
+    
+    --fuente-titulos: 'Playfair Display', serif;
+    --fuente-textos: 'Montserrat', sans-serif;
 }
 
 /* ==========================================================================
-   RESETEO Y ESTILOS BASE
+   2. ESTILOS GENERALES
    ========================================================================== */
 * {
     margin: 0;
@@ -22,9 +25,7 @@
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
     font-family: var(--fuente-textos);
@@ -33,13 +34,10 @@ body {
     line-height: 1.6;
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
-}
+a { text-decoration: none; color: inherit; }
 
 /* ==========================================================================
-   HEADER / NAVEGACIÓN
+   3. NAVEGACIÓN Y HEADER
    ========================================================================== */
 .header {
     display: flex;
@@ -70,16 +68,13 @@ a {
     transition: color 0.3s ease;
 }
 
-.nav a:hover {
-    color: var(--color-primario);
-}
+.nav a:hover { color: var(--color-primario); }
 
 /* ==========================================================================
-   SECCIÓN HERO (Atracción Inicial)
+   4. SECCIÓN PRINCIPAL (BANNER CON VIDEO)
    ========================================================================== */
 .hero {
-    /* Aquí puedes poner la URL de una foto de tu local o una modelo */
-    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+    position: relative;
     height: 85vh;
     display: flex;
     align-items: center;
@@ -87,6 +82,35 @@ a {
     text-align: center;
     color: var(--color-blanco);
     padding: 0 20px;
+    overflow: hidden; /* Esto evita que el video sobresalga de su área */
+}
+
+/* Estilos para el video de fondo */
+.video-fondo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que el video llene toda la pantalla sin aplastarse */
+    z-index: 1; /* Lo manda al fondo */
+}
+
+/* Capa semi-transparente oscura (Psicología visual: vital para que el texto sea legible) */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* El 0.4 es la opacidad. Puedes subirlo a 0.6 si tu video es muy claro */
+    z-index: 2; /* Lo pone por encima del video */
+}
+
+/* Contenedor de los textos y el botón */
+.hero-content {
+    position: relative;
+    z-index: 3; /* Lo pone al frente de todo para que se pueda leer y hacer clic */
 }
 
 .hero-content h1 {
@@ -103,11 +127,10 @@ a {
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
-    letter-spacing: 1px;
 }
 
 /* ==========================================================================
-   BOTONES
+   5. BOTONES
    ========================================================================== */
 .btn-primary {
     display: inline-block;
@@ -118,14 +141,13 @@ a {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 2px;
-    border-radius: 2px;
     transition: all 0.3s ease;
 }
 
 .btn-primary:hover {
-    background-color: #af926a;
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    opacity: 0.9;
 }
 
 .btn-secondary {
@@ -137,17 +159,14 @@ a {
     font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    border-radius: 2px;
     transition: background-color 0.3s ease;
     margin-top: 10px;
 }
 
-.btn-secondary:hover {
-    background-color: var(--color-primario);
-}
+.btn-secondary:hover { background-color: var(--color-primario); }
 
 /* ==========================================================================
-   BENEFICIOS (Generadores de confianza)
+   6. BENEFICIOS (Envíos, tarjetas, etc)
    ========================================================================== */
 .benefits {
     display: flex;
@@ -156,53 +175,25 @@ a {
     background-color: var(--color-blanco);
     padding: 3rem 5%;
     text-align: center;
-    border-bottom: 1px solid #eaeaea;
 }
 
-.benefit-item {
-    flex: 1;
-    min-width: 250px;
-    margin: 15px;
-}
-
-.benefit-item i {
-    font-size: 2.2rem;
-    color: var(--color-primario);
-    margin-bottom: 15px;
-}
-
-.benefit-item h3 {
-    font-family: var(--fuente-titulos);
-    font-size: 1.2rem;
-    margin-bottom: 8px;
-}
-
-.benefit-item p {
-    font-size: 0.9rem;
-    color: #666;
-}
+.benefit-item { flex: 1; min-width: 250px; margin: 15px; }
+.benefit-item i { font-size: 2.2rem; color: var(--color-primario); margin-bottom: 15px; }
+.benefit-item h3 { font-family: var(--fuente-titulos); font-size: 1.2rem; margin-bottom: 8px; }
 
 /* ==========================================================================
-   COLECCIÓN DE PRODUCTOS
+   7. PRODUCTOS Y EFECTO DE IMÁGENES AL PASAR EL MOUSE
    ========================================================================== */
-.collection {
-    padding: 6rem 5%;
-    text-align: center;
-}
-
+.collection { padding: 6rem 5%; text-align: center; }
 .collection h2 {
     font-family: var(--fuente-titulos);
     font-size: 2.8rem;
     margin-bottom: 3rem;
-    position: relative;
-    color: var(--color-texto);
 }
-
 .collection h2::after {
     content: '';
     display: block;
-    width: 80px;
-    height: 2px;
+    width: 80px; height: 2px;
     background-color: var(--color-primario);
     margin: 20px auto 0;
 }
@@ -226,36 +217,59 @@ a {
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
-.img-placeholder {
-    background-color: #e5e5e5;
-    height: 400px; /* Alto de la imagen */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #999;
-    font-size: 1.2rem;
+/* LA MAGIA DEL CARRUSEL DE IMÁGENES */
+.galeria-hover {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    background-color: #f1f1f1;
+    overflow: hidden;
 }
 
-.producto-info {
-    padding: 2rem 1.5rem;
-    text-align: left;
+.img-slide {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    opacity: 0; 
 }
 
-.producto-info h3 {
-    font-family: var(--fuente-titulos);
-    font-size: 1.4rem;
-    margin-bottom: 10px;
+.galeria-hover .img-slide:nth-child(1) { opacity: 1; }
+.producto-card:hover .img-slide { animation: carruselImagenes 6s infinite; }
+.producto-card:hover .img-slide:nth-child(1) { animation-delay: 0s; }
+.producto-card:hover .img-slide:nth-child(2) { animation-delay: 2s; }
+.producto-card:hover .img-slide:nth-child(3) { animation-delay: 4s; }
+
+@keyframes carruselImagenes {
+    0%   { opacity: 0; }
+    10%  { opacity: 1; }
+    33%  { opacity: 1; }
+    43%  { opacity: 0; }
+    100% { opacity: 0; }
 }
 
-.precio {
-    font-weight: 600;
-    font-size: 1.2rem;
-    color: var(--color-texto);
-    margin-bottom: 15px;
+.producto-info { padding: 2rem 1.5rem; text-align: left; }
+.producto-info h3 { font-family: var(--fuente-titulos); font-size: 1.4rem; margin-bottom: 10px; }
+/* Ajustamos el título para que esté más pegadito a los talles */
+.producto-info h3 { 
+    font-family: var(--fuente-titulos); 
+    font-size: 1.4rem; 
+    margin-bottom: 4px; /* Achicamos un poco el margen inferior */
 }
+
+/* ESTILO PARA LOS TALLES */
+.talles {
+    font-size: 0.8rem;
+    color: #777777; /* Un gris elegante */
+    text-transform: uppercase; /* Letras en mayúscula para dar aspecto de etiqueta */
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+.precio { font-weight: 600; font-size: 1.2rem; margin-bottom: 15px; }
 
 /* ==========================================================================
-   FOOTER Y LLAMADO A LA ACCIÓN (CTA)
+   8. FOOTER Y REDES
    ========================================================================== */
 .footer {
     background-color: var(--color-texto);
@@ -264,96 +278,35 @@ a {
     padding: 5rem 5% 2rem;
 }
 
-.footer-cta {
-    max-width: 800px;
-    margin: 0 auto 4rem;
-}
-
-.footer-cta h2 {
-    font-family: var(--fuente-titulos);
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-    color: var(--color-secundario);
-}
-
-.footer-cta p {
-    margin-bottom: 2.5rem;
-    font-size: 1.1rem;
-    font-weight: 300;
-    color: #cccccc;
-}
+.footer-cta h2 { font-family: var(--fuente-titulos); font-size: 2.5rem; margin-bottom: 1.5rem; }
+.footer-cta p { margin-bottom: 2.5rem; font-size: 1.1rem; }
 
 .social-link {
     display: inline-block;
-    font-size: 1.1rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
     border: 1px solid var(--color-blanco);
     padding: 15px 35px;
     transition: all 0.3s ease;
 }
-
-.social-link i {
-    margin-right: 8px;
-    font-size: 1.3rem;
-}
-
-.social-link:hover {
-    background-color: var(--color-blanco);
-    color: var(--color-texto);
-}
-
-.footer-bottom {
-    border-top: 1px solid rgba(255,255,255,0.1);
-    padding-top: 2rem;
-    font-size: 0.85rem;
-    color: #777777;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
+.social-link:hover { background-color: var(--color-blanco); color: var(--color-texto); }
 
 /* ==========================================================================
-   BOTÓN FLOTANTE DE WHATSAPP (Efecto psicológico de soporte inmediato)
+   9. BOTÓN FLOTANTE WHATSAPP
    ========================================================================== */
 .whatsapp-btn {
     position: fixed;
-    bottom: 30px;
-    right: 30px;
+    bottom: 30px; right: 30px;
     background-color: var(--color-whatsapp);
     color: white;
-    width: 65px;
-    height: 65px;
+    width: 65px; height: 65px;
     border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: flex; justify-content: center; align-items: center;
     font-size: 38px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     z-index: 1000;
-    
-    /* Transición suave y limpia con CSS puro */
     transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
 }
 
-/* Efecto hover: agrandamiento moderado para llamar la atención sin ser agresivo */
 .whatsapp-btn:hover {
     transform: scale(1.15);
-    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4); /* Brillo verde sutil */
-}
-
-/* ==========================================================================
-   RESPONSIVE DESIGN (Adaptación a celulares)
-   ========================================================================== */
-@media (max-width: 768px) {
-    .hero-content h1 {
-        font-size: 2.8rem;
-    }
-    
-    .nav {
-        display: none; /* En un futuro aquí puedes poner un menú hamburguesa */
-    }
-    
-    .footer-cta h2 {
-        font-size: 1.8rem;
-    }
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
 }
