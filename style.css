@@ -1,0 +1,359 @@
+/* ==========================================================================
+   VARIABLES DE DISEÑO (Paleta elegante y psicología del color)
+   ========================================================================== */
+:root {
+    --color-primario: #E63946; /* Tono beige/dorado: Elegancia y exclusividad */
+    --color-secundario: #f9f6f0; /* Fondo crema suave: Accesibilidad y calidez */
+    --color-texto: #E63946; /* Gris casi negro: Legibilidad y firmeza */
+    --color-blanco: #ffffff;
+    --color-whatsapp: #25d366; /* Verde original para reconocimiento inmediato */
+    
+    --fuente-titulos: 'Playfair Display', serif; /* Tipografía clásica para transmitir sofisticación */
+    --fuente-textos: 'Montserrat', sans-serif; /* Tipografía limpia y moderna */
+    --fuente-logo: 'Pacifico', cursive;
+}
+
+/* ==========================================================================
+   RESETEO Y ESTILOS BASE
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--fuente-textos);
+    color: var(--color-texto);
+    background-color: var(--color-secundario);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ==========================================================================
+   HEADER / NAVEGACIÓN
+   ========================================================================== */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    background-color: var(--color-blanco);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-family: var(--fuente-titulos);
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    color: var(--color-texto);
+}
+
+.nav a {
+    margin-left: 2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.nav a:hover {
+    color: var(--color-primario);
+}
+
+/* ==========================================================================
+   SECCIÓN HERO (Atracción Inicial)
+   ========================================================================== */
+.hero {
+    /* Aquí puedes poner la URL de una foto de tu local o una modelo */
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+    height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-blanco);
+    padding: 0 20px;
+}
+
+.hero-content h1 {
+    font-family: var(--fuente-titulos);
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    letter-spacing: 1px;
+}
+
+/* ==========================================================================
+   BOTONES
+   ========================================================================== */
+.btn-primary {
+    display: inline-block;
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+    padding: 15px 35px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #af926a;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.btn-secondary {
+    display: block;
+    text-align: center;
+    background-color: var(--color-texto);
+    color: var(--color-blanco);
+    padding: 12px 20px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 2px;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-primario);
+}
+
+/* ==========================================================================
+   BENEFICIOS (Generadores de confianza)
+   ========================================================================== */
+.benefits {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background-color: var(--color-blanco);
+    padding: 3rem 5%;
+    text-align: center;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.benefit-item {
+    flex: 1;
+    min-width: 250px;
+    margin: 15px;
+}
+
+.benefit-item i {
+    font-size: 2.2rem;
+    color: var(--color-primario);
+    margin-bottom: 15px;
+}
+
+.benefit-item h3 {
+    font-family: var(--fuente-titulos);
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+.benefit-item p {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* ==========================================================================
+   COLECCIÓN DE PRODUCTOS
+   ========================================================================== */
+.collection {
+    padding: 6rem 5%;
+    text-align: center;
+}
+
+.collection h2 {
+    font-family: var(--fuente-titulos);
+    font-size: 2.8rem;
+    margin-bottom: 3rem;
+    position: relative;
+    color: var(--color-texto);
+}
+
+.collection h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 2px;
+    background-color: var(--color-primario);
+    margin: 20px auto 0;
+}
+
+.grid-productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.producto-card {
+    background-color: var(--color-blanco);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.producto-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.img-placeholder {
+    background-color: #e5e5e5;
+    height: 400px; /* Alto de la imagen */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    font-size: 1.2rem;
+}
+
+.producto-info {
+    padding: 2rem 1.5rem;
+    text-align: left;
+}
+
+.producto-info h3 {
+    font-family: var(--fuente-titulos);
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.precio {
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: var(--color-texto);
+    margin-bottom: 15px;
+}
+
+/* ==========================================================================
+   FOOTER Y LLAMADO A LA ACCIÓN (CTA)
+   ========================================================================== */
+.footer {
+    background-color: var(--color-texto);
+    color: var(--color-blanco);
+    text-align: center;
+    padding: 5rem 5% 2rem;
+}
+
+.footer-cta {
+    max-width: 800px;
+    margin: 0 auto 4rem;
+}
+
+.footer-cta h2 {
+    font-family: var(--fuente-titulos);
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-secundario);
+}
+
+.footer-cta p {
+    margin-bottom: 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: #cccccc;
+}
+
+.social-link {
+    display: inline-block;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 1px solid var(--color-blanco);
+    padding: 15px 35px;
+    transition: all 0.3s ease;
+}
+
+.social-link i {
+    margin-right: 8px;
+    font-size: 1.3rem;
+}
+
+.social-link:hover {
+    background-color: var(--color-blanco);
+    color: var(--color-texto);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 2rem;
+    font-size: 0.85rem;
+    color: #777777;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ==========================================================================
+   BOTÓN FLOTANTE DE WHATSAPP (Efecto psicológico de soporte inmediato)
+   ========================================================================== */
+.whatsapp-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--color-whatsapp);
+    color: white;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 38px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    z-index: 1000;
+    
+    /* Transición suave y limpia con CSS puro */
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+}
+
+/* Efecto hover: agrandamiento moderado para llamar la atención sin ser agresivo */
+.whatsapp-btn:hover {
+    transform: scale(1.15);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4); /* Brillo verde sutil */
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (Adaptación a celulares)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.8rem;
+    }
+    
+    .nav {
+        display: none; /* En un futuro aquí puedes poner un menú hamburguesa */
+    }
+    
+    .footer-cta h2 {
+        font-size: 1.8rem;
+    }
+}
