@@ -62,368 +62,50 @@
     <div id="coleccion"></div>
 
     <!-- BARRA DE CATEGORÍAS TIPO BOTONES HORIZONTALES -->
-    <div class="categorias-botones-scroll">
-        <div class="categorias-track">
-            <a href="#destacados" class="btn-cat">DESTACADOS ✨</a>
-            <a href="#accesorios" class="btn-cat">ACCESORIOS</a>
-            <a href="#buzos" class="btn-cat">BUZOS</a>
-            <a href="#calsas" class="btn-cat">CALSAS</a>
-            <a href="#camperas" class="btn-cat">CAMPERAS</a>
-            <a href="#chaleco" class="btn-cat">CHALECO</a>
-            <a href="#conjuntos" class="btn-cat">CONJUNTOS</a>
-            <a href="#jeans" class="btn-cat">JEANS</a>
-            <a href="#jogging" class="btn-cat">JOGGING</a>
-            <a href="#musculosas" class="btn-cat">MUSCULOSAS</a>
-            <a href="#pantalones" class="btn-cat">PANTALONES</a>
-            <a href="#remeras" class="btn-cat">REMERAS</a>
-            <a href="#vestido" class="btn-cat">VESTIDO</a>
-        </div>
-    </div>
+    <div class="menu-filtros">
+    <button onclick="filtrarProductos('todos')">VER TODOS 🛍️</button>
+    <button onclick="filtrarProductos('destacados')">DESTACADOS ✨</button>
+    <button onclick="filtrarProductos('accesorios')">ACCESORIOS</button>
+    <button onclick="filtrarProductos('buzos')">BUZOS</button>
+    <button onclick="filtrarProductos('calsas')">CALSAS</button>
+    <button onclick="filtrarProductos('camperas')">CAMPERAS</button>
+    <button onclick="filtrarProductos('chaleco')">CHALECO</button>
+    <button onclick="filtrarProductos('conjuntos')">CONJUNTOS</button>
+    <button onclick="filtrarProductos('jeans')">JEANS</button>
+    <button onclick="filtrarProductos('jogging')">JOGGING</button>
+    <button onclick="filtrarProductos('musculosas')">MUSCULOSAS</button>
+    <button onclick="filtrarProductos('pantalones')">PANTALONES</button>
+    <button onclick="filtrarProductos('remeras')">REMERAS</button>
+    <button onclick="filtrarProductos('vestido')">VESTIDO</button>
+</div>
 
-     <!-- SECCIÓN: DESTACADOS ✨ (Estructura idéntica a tu primera captura con flechas traslúcidas profesionales) -->
-    <section id="destacados" class="seccion-catalogo">
-        <div class="titulo-container">
-            <h2>DESTACADOS ✨</h2>
-            <div class="linea-decorativa"></div>
-        </div>
+     <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magnolia - Catálogo</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
 
-        <div class="grid-productos">
-            <!-- Producto 1: Con Galería y flechas traslúcidas -->
-            <div class="producto-card">
-                <div class="galeria-manual" id="galeria-1">
-                    <div class="imagenes-container">
-                        <img src="img/chupin-brillo/frente.jpeg" alt="Frente" class="img-slide activa">
-                        <img src="img/chupin-brillo/perfil.jpeg" alt="Perfil" class="img-slide">
-                        <img src="img/chupin-brillo/espalda.jpeg" alt="Espalda" class="img-slide">
-                    </div>
-                    <button class="flecha-galeria izquierda" onclick="cambiarSlide('galeria-1', -1)"><i class="fa-solid fa-chevron-left"></i></button>
-                    <button class="flecha-galeria derecha" onclick="cambiarSlide('galeria-1', 1)"><i class="fa-solid fa-chevron-right"></i></button>
-                </div>
-                <div class="producto-info">
-                    <h3>Chupin con Brillo</h3>
-                    <p class="talles">TALLES DISPONIBLES: DEL 38 AL 50</p>
-                    <p class="precio">$38.000</p>
-                    <a href="https://wa.me/message/SSYMOC5HJM5QI1" target="_blank" class="btn-lo-quiero">LO QUIERO</a>
-                </div>
-            </div>
+    <!-- Tu Encabezado / Logo -->
+    <header>
+        <h1>Magnolia Indumentaria</h1>
+    </header>
 
-            <!-- Producto 2: Imagen única (o más) -->
-            <div class="producto-card">
-                <div class="galeria-manual" id="galeria-2">
-                    <div class="imagenes-container">
-                        <img src="img/pantuflas/chanchito.JPG" alt="Pantuflas" class="img-slide activa">
-                        <img src="img/pantuflas/harry.JPG" alt="Harry Potter" class="img-slide activa">
-                        <img src="img/pantuflas/katty.JPG" alt="Harry Potter" class="img-slide activa">
-                        <img src="img/pantuflas/katty2.JPG" alt="Harry Potter" class="img-slide activa">
-                        <img src="img/pantuflas/oso.JPG" alt="Harry Potter" class="img-slide activa">
-                    </div>
-                    <button class="flecha-galeria izquierda" onclick="cambiarSlide('galeria-2', -1)"><i class="fa-solid fa-chevron-left"></i></button>
-                    <button class="flecha-galeria derecha" onclick="cambiarSlide('galeria-2', 1)"><i class="fa-solid fa-chevron-right"></i></button>
-                </div>
-                <div class="producto-info">
-                    <h3>Pantuflas</h3>
-                    <p class="talles">TALLE UNICO</p>
-                    <p class="precio">$22.000</p>
-                    <a href="https://wa.me/message/SSYMOC5HJM5QI1" target="_blank" class="btn-lo-quiero">LO QUIERO</a>
-                </div>
-            </div>
+    <!-- AQUÍ ES DONDE SE CARGA TODO AUTOMÁTICAMENTE -->
+    <main>
+        <section id="contenedor-productos">
+            <!-- JavaScript llenará este espacio mágicamente agrupado por categorías -->
+        </section>
+    </main>
 
-            <!-- Producto 3 -->
-            <div class="producto-card">
-                <div class="galeria-manual" id="galeria-3">
-                    <div class="imagenes-container">
-                        <img src="img/body-cierre/frente.png" alt="Body con cierre" class="img-slide activa">
-                        <img src="img/body-cierre/perfil.png" alt="Body con cierre" class="img-slide activa">
-                        <img src="img/body-cierre/espalda.png" alt="Body con cierre" class="img-slide activa">
-                    </div>
-                    <button class="flecha-galeria izquierda" onclick="cambiarSlide('galeria-3', -1)"><i class="fa-solid fa-chevron-left"></i></button>
-                    <button class="flecha-galeria derecha" onclick="cambiarSlide('galeria-3', 1)"><i class="fa-solid fa-chevron-right"></i></button>
-                </div>
-                <div class="producto-info">
-                    <h3>Body con cierre</h3>
-                    <p class="talles">TALLES DISPONIBLES: 2 - 4</p>
-                    <p class="precio">$17.000</p>
-                    <a href="https://wa.me/message/SSYMOC5HJM5QI1" target="_blank" class="btn-lo-quiero">LO QUIERO</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECCIÓN: ACCESORIOS -->
-    <section id="accesorios" class="seccion-catalogo">
-        <div class="titulo-container">
-            <h2>Accesorios</h2>
-            <div class="linea-decorativa"></div>
-        </div>
-        <div class="grid-productos">
-            <div class="producto-card">
-                <div class="galeria-manual">
-                    <div class="imagenes-container">
-                        <img src="img/banner/banner-portada.jpg" alt="Cintos" class="img-slide activa">
-                    </div>
-                </div>
-                <div class="producto-info">
-                    <h3>Cintos y Variedad</h3>
-                    <p class="talles">MODELOS 32016, 32108, 32115</p>
-                    <p class="precio">$8.000 - $14.000</p>
-                    <a href="https://wa.me/message/SSYMOC5HJM5QI1" target="_blank" class="btn-lo-quiero">LO QUIERO</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECCIÓN: BUZOS -->
-    <section id="buzos" class="seccion-catalogo">
-        <div class="titulo-container">
-            <h2>Buzos</h2>
-            <div class="linea-decorativa"></div>
-        </div>
-        <div class="grid-productos">
-            <div class="producto-card">
-                <div class="galeria-manual">
-                    <div class="imagenes-container">
-                        <img src="img/banner/banner-portada.jpg" alt="Buzos" class="img-slide activa">
-                    </div>
-                </div>
-                <div class="producto-info">
-                    <h3>Buzos Argentina, Batik y Lisos</h3>
-                    <p class="talles">VARIEDAD DE TALLES</p>
-                    <p class="precio">$64.000 - $90.000</p>
-                    <a href="https://wa.me/message/SSYMOC5HJM5QI1" target="_blank" class="btn-lo-quiero">LO QUIERO</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECCIÓN: CALSAS -->
-    <section id="calsas" class="seccion-catalogo">
-        <div class="titulo-container">
-            <h2>Calsas</h2>
-            <div class="linea-decorativa"></div>
-        </div>
-        <div class="grid-productos">
-            <div class="producto-card">
-                <div class="galeria-manual">
-                    <div class="imagenes-container">
-                        <img src="img/banner/banner-portada.jpg" alt="Calsas" class="img-slide activa">
-                    </div>
-                </div>
-                <div class="producto-info">
-                    <h3>Calsas Lisas</h3>
-                    <p class="talles">TALLES T1 AL T3</p>
-                    <p class="precio">$10.000</p>
-                    <a href="https://wa.me/message/SSYMOC5HJM5QI1" target="_blank" class="btn-lo-quiero">LO QUIERO</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECCIÓN: CAMPERAS -->
-    <section id="camperas" class="seccion-catalogo">
-        <div class="titulo-container">
-            <h2>Camperas</h2>
-            <div class="linea-decorativa"></div>
-        </div>
-        <div class="grid-productos">
-            <div class="producto-card">
-                <div class="galeria-manual">
-                    <div class="imagenes-container">
-                        <img src="img/banner/banner-portada.jpg" alt="Camperas" class="img-slide activa">
-                    </div>
-                </div>
-                <div class="producto-info">
-                    <h3>Camperas Plush y Puffer</h3>
-                    <p class="talles">MODELOS EXCLUSIVOS</p>
-                    <p class="precio">$44.000 - $80.000</p>
-                    <a href="https://wa.me/message/SSYMOC5HJM5QI1" target="_blank" class="btn-lo-quiero">LO QUIERO</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECCIÓN: CHALECO -->
-    <section id="chaleco" class="seccion-catalogo">
-        <div class="titulo-container">
-            <h2>Chaleco</h2>
-            <div class="linea-decorativa"></div>
-        </div>
-        <div class="grid-productos">
-            <div class="producto-card">
-                <div class="galeria-manual">
-                    <div class="imagenes-container">
-                        <img src="img/banner/banner-portada.jpg" alt="Chaleco" class="img-slide activa">
-                    </div>
-                </div>
-                <div class="producto-info">
-                    <h3>Chalecos Puffer</h3>
-                    <p class="talles">TALLES VARIADOS</p>
-                    <p class="precio">$30.000 - $90.000</p>
-                    <a href="https://wa.me/message/SSYMOC5HJM5QI1" target="_blank" class="btn-lo-quiero">LO QUIERO</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECCIÓN: CONJUNTOS -->
-    <section id="conjuntos" class="seccion-catalogo">
-        <div class="titulo-container">
-            <h2>Conjuntos</h2>
-            <div class="linea-decorativa"></div>
-        </div>
-        <div class="grid-productos">
-            <div class="producto-card">
-                <div class="galeria-manual">
-                    <div class="imagenes-container">
-                        <img src="img/banner/banner-portada.jpg" alt="Conjuntos" class="img-slide activa">
-                    </div>
-                </div>
-                <div class="producto-info">
-                    <h3>Conjuntos Morley</h3>
-                    <p class="talles">TALLES T3 Y T5</p>
-                    <p class="precio">$22.000 - $88.000</p>
-                    <a href="https://wa.me/message/SSYMOC5HJM5QI1" target="_blank" class="btn-lo-quiero">LO QUIERO</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECCIÓN: JEANS -->
-    <section id="jeans" class="seccion-catalogo">
-        <div class="titulo-container">
-            <h2>Jeans</h2>
-            <div class="linea-decorativa"></div>
-        </div>
-        <div class="grid-productos">
-            <div class="producto-card">
-                <div class="galeria-manual">
-                    <div class="imagenes-container">
-                        <img src="img/banner/banner-portada.jpg" alt="Jeans" class="img-slide activa">
-                    </div>
-                </div>
-                <div class="producto-info">
-                    <h3>Baggi, Widleg y Mom Jeans</h3>
-                    <p class="talles">TALLES DEL 38 AL 46</p>
-                    <p class="precio">$38.000 - $45.000</p>
-                    <a href="https://wa.me/message/SSYMOC5HJM5QI1" target="_blank" class="btn-lo-quiero">LO QUIERO</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECCIÓN: JOGGING -->
-    <section id="jogging" class="seccion-catalogo">
-        <div class="titulo-container">
-            <h2>Jogging</h2>
-            <div class="linea-decorativa"></div>
-        </div>
-        <div class="grid-productos">
-            <div class="producto-card">
-                <div class="galeria-manual">
-                    <div class="imagenes-container">
-                        <img src="img/banner/banner-portada.jpg" alt="Jogging" class="img-slide activa">
-                    </div>
-                </div>
-                <div class="producto-info">
-                    <h3>Joggings y Bagger</h3>
-                    <p class="talles">COMODIDAD Y DISEÑO</p>
-                    <p class="precio">$44.000 - $60.000</p>
-                    <a href="https://wa.me/message/SSYMOC5HJM5QI1" target="_blank" class="btn-lo-quiero">LO QUIERO</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECCIÓN: MUSCULOSAS -->
-    <section id="musculosas" class="seccion-catalogo">
-        <div class="titulo-container">
-            <h2>Musculosas</h2>
-            <div class="linea-decorativa"></div>
-        </div>
-        <div class="grid-productos">
-            <div class="producto-card">
-                <div class="galeria-manual">
-                    <div class="imagenes-container">
-                        <img src="img/banner/banner-portada.jpg" alt="Musculosas" class="img-slide activa">
-                    </div>
-                </div>
-                <div class="producto-info">
-                    <h3>Musculosas Básicas</h3>
-                    <p class="talles">VARIOS TALLES</p>
-                    <p class="precio">$16.000 - $18.000</p>
-                    <a href="https://wa.me/message/SSYMOC5HJM5QI1" target="_blank" class="btn-lo-quiero">LO QUIERO</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECCIÓN: PANTALONES -->
-    <section id="pantalones" class="seccion-catalogo">
-        <div class="titulo-container">
-            <h2>Pantalones</h2>
-            <div class="linea-decorativa"></div>
-        </div>
-        <div class="grid-productos">
-            <div class="producto-card">
-                <div class="galeria-manual">
-                    <div class="imagenes-container">
-                        <img src="img/banner/banner-portada.jpg" alt="Pantalones" class="img-slide activa">
-                    </div>
-                </div>
-                <div class="producto-info">
-                    <h3>Pantalones Bengalina</h3>
-                    <p class="talles">TALLES TM, TL, TXL</p>
-                    <p class="precio">$44.000</p>
-                    <a href="https://wa.me/message/SSYMOC5HJM5QI1" target="_blank" class="btn-lo-quiero">LO QUIERO</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECCIÓN: REMERAS -->
-    <section id="remeras" class="seccion-catalogo">
-        <div class="titulo-container">
-            <h2>Remeras</h2>
-            <div class="linea-decorativa"></div>
-        </div>
-        <div class="grid-productos">
-            <div class="producto-card">
-                <div class="galeria-manual">
-                    <div class="imagenes-container">
-                        <img src="img/banner/banner-portada.jpg" alt="Remeras" class="img-slide activa">
-                    </div>
-                </div>
-                <div class="producto-info">
-                    <h3>Remeras Estampadas y Argentina</h3>
-                    <p class="talles">VARIEDAD DE DISEÑOS</p>
-                    <p class="precio">$24.000 - $60.000</p>
-                    <a href="https://wa.me/message/SSYMOC5HJM5QI1" target="_blank" class="btn-lo-quiero">LO QUIERO</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECCIÓN: VESTIDO -->
-    <section id="vestido" class="seccion-catalogo">
-        <div class="titulo-container">
-            <h2>Vestido</h2>
-            <div class="linea-decorativa"></div>
-        </div>
-        <div class="grid-productos">
-            <div class="producto-card">
-                <div class="galeria-manual">
-                    <div class="imagenes-container">
-                        <img src="img/banner/banner-portada.jpg" alt="Vestido" class="img-slide activa">
-                    </div>
-                </div>
-                <div class="producto-info">
-                    <h3>Vestidos Manga Larga</h3>
-                    <p class="talles">MODELO IVY</p>
-                    <p class="precio">$44.000</p>
-                    <a href="https://wa.me/message/SSYMOC5HJM5QI1" target="_blank" class="btn-lo-quiero">LO QUIERO</a>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- Tus archivos de JavaScript al final antes de cerrar el body -->
+    <script src="productos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
 
     <!-- FOOTER Y CONTACTO -->
     <footer id="contacto" class="footer">
@@ -476,3 +158,4 @@
     </script>
 </body>
 </html>
+
