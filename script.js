@@ -1,9 +1,13 @@
+// --- NÚMERO DE WHATSAPP DE LA TIENDA ---
+// Si algún día cambias de número, solo lo editas aquí arriba y se actualiza en toda la web.
+const NUMERO_WHATSAPP = "5491179019552";
+
+// --- 1. Inicialización ---
 document.addEventListener("DOMContentLoaded", () => {
-    // Apenas carga la página, mostramos todos los productos
     renderizarProductos(listaProductos);
 });
 
-// Función principal que dibuja las tarjetas en el HTML
+// --- 2. Función principal que dibuja las tarjetas en el HTML ---
 function renderizarProductos(productosAMostrar) {
     const contenedor = document.getElementById("contenedor-productos");
     if (!contenedor) return;
@@ -42,7 +46,11 @@ function renderizarProductos(productosAMostrar) {
                 imagenesHTML += `<img src="${imgSrc}" alt="${prod.nombre}" class="${claseActiva}">`;
             });
 
-          htmlContenido += `
+            // Creamos el mensaje personalizado para WhatsApp usando la variable global
+            const textoWp = `Hola! Me interesa la prenda "${prod.nombre}" (Talles: ${prod.talles}) que vi en la tienda a ${prod.precio}. ¿Tendrán stock?`;
+            const linkWp = `https://api.whatsapp.com/send?phone=${NUMERO_WHATSAPP}&text=${encodeURIComponent(textoWp)}`;
+
+            htmlContenido += `
                 <div class="producto-card">
                     <div class="galeria-manual" id="${galeriaId}">
                         <div class="imagenes-container">
@@ -55,7 +63,7 @@ function renderizarProductos(productosAMostrar) {
                         <h3>${prod.nombre}</h3>
                         <p class="talles">TALLES DISPONIBLES: ${prod.talles.toUpperCase()}</p>
                         <p class="precio">${prod.precio}</p>
-                        <a href="https://wa.me/5491179019552?text=${encodeURIComponent(`Hola! Me interesa la prenda "${prod.nombre}" (Talles: ${prod.talles}) que vi en la tienda a ${prod.precio}.`)}" target="_blank" class="btn-lo-quiero">LO QUIERO</a>
+                        <a href="${linkWp}" target="_blank" class="btn-lo-quiero">LO QUIERO</a>
                     </div>
                 </div>
             `;
@@ -67,23 +75,20 @@ function renderizarProductos(productosAMostrar) {
     contenedor.innerHTML = htmlContenido;
 }
 
-// Función que se ejecuta cuando haces clic en los botones del menú superior
+// --- 3. Función de filtrado por categoría ---
 function filtrarProductos(categoria) {
     if (categoria === 'todos') {
-        // Muestra absolutamente todo el catálogo ordenado por categorías
         renderizarProductos(listaProductos);
     } else if (categoria === 'destacados') {
-        // Muestra únicamente los productos que tengan destacado: true
         const destacados = listaProductos.filter(p => p.destacado === true);
         renderizarProductos(destacados);
     } else {
-        // Filtra por una categoría normal (ej: camperas, jeans, etc.)
         const filtrados = listaProductos.filter(p => p.categoria.toLowerCase() === categoria.toLowerCase());
         renderizarProductos(filtrados);
     }
 }
 
-// Función para mover las fotos con las flechas de la galería
+// --- 4. Función para mover las fotos con las flechas de la galería ---
 function cambiarSlide(galeriaId, direccion) {
     const galeria = document.getElementById(galeriaId);
     if (!galeria) return;
