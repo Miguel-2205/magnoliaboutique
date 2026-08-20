@@ -1,7 +1,3 @@
-// --- NÚMERO DE WHATSAPP DE LA TIENDA ---
-// Si algún día cambias de número, solo lo editas aquí arriba y se actualiza en toda la web.
-const NUMERO_WHATSAPP = "5491179019552";
-
 // --- 1. Inicialización ---
 document.addEventListener("DOMContentLoaded", () => {
     renderizarProductos(listaProductos);
@@ -46,9 +42,9 @@ function renderizarProductos(productosAMostrar) {
                 imagenesHTML += `<img src="${imgSrc}" alt="${prod.nombre}" class="${claseActiva}">`;
             });
 
-            // Creamos el mensaje personalizado para WhatsApp usando la variable global
+            // Creamos el mensaje personalizado de WhatsApp usando el archivo centralizado config.js
             const textoWp = `Hola! Me interesa la prenda "${prod.nombre}" (Talles: ${prod.talles}) que vi en la tienda a ${prod.precio}. ¿Tendrán stock?`;
-            const linkWp = `https://api.whatsapp.com/send?phone=${NUMERO_WHATSAPP}&text=${encodeURIComponent(textoWp)}`;
+            const linkWp = `https://api.whatsapp.com/send?phone=${CONFIG.telefonoWhatsApp}&text=${encodeURIComponent(textoWp)}`;
 
             htmlContenido += `
                 <div class="producto-card">
