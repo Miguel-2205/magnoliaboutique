@@ -524,3 +524,35 @@ body {
     border-color: #333333;
     transform: translateY(-2px); /* Se elevan un poquito */
 }
+/* --- Carrusel horizontal para las categorías --- */
+.grid-productos {
+    display: flex;
+    flex-wrap: nowrap; /* Evita que bajen a la siguiente línea */
+    overflow-x: auto;   /* Permite deslizar hacia los costados */
+    gap: 20px;          /* Espacio entre cada tarjeta */
+    padding-bottom: 15px; /* Espacio para que la barra de scroll no pegue con las tarjetas */
+    scroll-snap-type: x mandatory; /* Hace que el deslizamiento sea suave y se encaje en cada producto */
+    -webkit-overflow-scrolling: touch; /* Deslizamiento fluido en iPhone/Android */
+}
+
+/* Forzamos un ancho fijo a las tarjetas dentro del slider para que no se aplasten */
+.grid-productos .producto-card {
+    flex: 0 0 260px; /* Ancho fijo de cada tarjeta (ajustá a 240px o 280px si querés) */
+    scroll-snap-align: start;
+}
+
+/* Opcional: Personalizar la barrita de desplazamiento para que sea sutil */
+.grid-productos::-webkit-scrollbar {
+    height: 6px;
+}
+.grid-productos::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+.grid-productos::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
+.grid-productos::-webkit-scrollbar-thumb:hover {
+    background: #999;
+}
