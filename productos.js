@@ -31,10 +31,10 @@ const listaProductos = [
         precio: "$20.000",
         destacado: false, // <-- Esto indica que es destacado
         imagenes: [
-            "img/camperas/plush/1.jpg",
-            "img/camperas/plush/2.jpg",
-            "img/camperas/plush/3.jpg",
-            "img/camperas/plush/4.jpg"
+            "img/camperas/plush/1.JPG",
+            "img/camperas/plush/2.JPG",
+            "img/camperas/plush/3.JPG",
+            "img/camperas/plush/4.JPG"
         ]
     },
     {
@@ -44,8 +44,8 @@ const listaProductos = [
         precio: "$30.000",
         destacado: false, // <-- Esto indica que es destacado
         imagenes: [
-            "img/camperas/tachas/1.jpg",
-            "img/camperas/tachas/2.jpg"
+            "img/camperas/tachas/1.JPG",
+            "img/camperas/tachas/2.JPG"
         ]
     },
     {
@@ -65,8 +65,8 @@ const listaProductos = [
         talles: "TM, TL, XL",
         precio: "$30.000",
         destacado: false,
-        imagenes: ["img/chaleco/puffer/1.jpg",
-            "img/chaleco/puffer/2.jpg"
+        imagenes: ["img/chaleco/puffer/1.JPG",
+            "img/chaleco/puffer/2.JPG"
         ]
     },
       {

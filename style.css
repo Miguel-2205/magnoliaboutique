@@ -177,12 +177,19 @@ body {
 }
 
 .grid-productos {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    display: flex;
+    flex-wrap: nowrap; /* Evita que bajen a la siguiente línea */
+    overflow-x: auto;   /* Permite deslizar hacia los costados */
+    gap: 20px;          /* Espacio entre cada tarjeta */
+    padding-bottom: 15px; /* Espacio para que la barra de scroll no pegue con las tarjetas */
+    scroll-snap-type: x mandatory; /* Hace que el deslizamiento sea suave y se encaje en cada producto */
+    -webkit-overflow-scrolling: touch; /* Deslizamiento fluido en iPhone/Android */
 }
 
-.producto-card {
+/* Forzamos un ancho fijo a las tarjetas dentro del slider para que no se aplasten */
+.grid-productos .producto-card {
+    flex: 0 0 260px; /* Ancho fijo de cada tarjeta */
+    scroll-snap-align: start;
     background-color: #fff;
     border-radius: 12px;
     overflow: hidden;
@@ -302,7 +309,7 @@ body {
     background-color: #c0392b;
 }
 
-/* HERO */
+/* HERO (Banner Principal con Video Oscurecido) */
 .hero {
     position: relative;
     height: 85vh;
@@ -311,16 +318,21 @@ body {
     justify-content: center;
     text-align: center;
     color: #fff;
+    overflow: hidden;
 }
 
 .video-fondo {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
     object-fit: cover;
     z-index: 1;
+    filter: brightness(0.5) contrast(1.05); /* ¡Aquí oscurecemos el video del banner! */
 }
 
 .overlay {
@@ -368,7 +380,7 @@ body {
     color: #fff;
 }
 
-/* BENEFICIOS (Adaptado para celular y PC) */
+/* BENEFICIOS */
 .benefits {
     display: flex;
     justify-content: space-around;
@@ -405,7 +417,7 @@ body {
 /* RESPONSIVE PARA CELULARES */
 @media (max-width: 768px) {
     .benefits {
-        flex-direction: column; /* Se apilan verticalmente en el teléfono */
+        flex-direction: column;
         gap: 25px;
         padding: 25px 15px;
     }
@@ -414,12 +426,12 @@ body {
         width: 100%;
         max-width: 320px;
         margin: 0 auto;
-        border-bottom: 1px solid #f5f5f5; /* Línea separadora sutil entre cada beneficio */
+        border-bottom: 1px solid #f5f5f5;
         padding-bottom: 15px;
     }
     
     .benefit-item:last-child {
-        border-bottom: none; /* Al último no le ponemos línea */
+        border-bottom: none;
         padding-bottom: 0;
     }
 }
@@ -492,56 +504,38 @@ body {
     transform: scale(1.1);
 }
 
-/* Contenedor de la botonera de filtros */
+/* Botonera de filtros */
 .menu-filtros {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
     justify-content: center;
     padding: 20px 10px;
-    background-color: transparent; /* O el color de fondo que prefieras */
+    background-color: transparent;
 }
 
-/* Estilo de cada botón individual */
 .menu-filtros button {
     background-color: #ffffff;
     color: #333333;
     border: 1px solid #e0e0e0;
-    border-radius: 30px; /* Bordes totalmente redondeados tipo píldora */
+    border-radius: 30px;
     padding: 10px 20px;
     font-size: 13px;
     font-weight: 600;
     letter-spacing: 0.5px;
     cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Una sombrita muy sutil */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease;
 }
 
-/* Efecto al pasar el mouse o al tocarlos */
 .menu-filtros button:hover {
     background-color: #333333;
     color: #ffffff;
     border-color: #333333;
-    transform: translateY(-2px); /* Se elevan un poquito */
-}
-/* --- Carrusel horizontal para las categorías --- */
-.grid-productos {
-    display: flex;
-    flex-wrap: nowrap; /* Evita que bajen a la siguiente línea */
-    overflow-x: auto;   /* Permite deslizar hacia los costados */
-    gap: 20px;          /* Espacio entre cada tarjeta */
-    padding-bottom: 15px; /* Espacio para que la barra de scroll no pegue con las tarjetas */
-    scroll-snap-type: x mandatory; /* Hace que el deslizamiento sea suave y se encaje en cada producto */
-    -webkit-overflow-scrolling: touch; /* Deslizamiento fluido en iPhone/Android */
+    transform: translateY(-2px);
 }
 
-/* Forzamos un ancho fijo a las tarjetas dentro del slider para que no se aplasten */
-.grid-productos .producto-card {
-    flex: 0 0 260px; /* Ancho fijo de cada tarjeta (ajustá a 240px o 280px si querés) */
-    scroll-snap-align: start;
-}
-
-/* Opcional: Personalizar la barrita de desplazamiento para que sea sutil */
+/* Barra de desplazamiento del carrusel */
 .grid-productos::-webkit-scrollbar {
     height: 6px;
 }
@@ -555,4 +549,41 @@ body {
 }
 .grid-productos::-webkit-scrollbar-thumb:hover {
     background: #999;
+}
+
+.producto-card {
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    /* Cambiamos el transform inicial y sumamos transition para que sea suave */
+    transform: scale(1);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* Efecto zoom y sombra más intensa al pasar el mouse */
+.producto-card:hover {
+    transform: scale(1.03); /* Se agranda un 3% suavemente */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    z-index: 10; /* Para que al agrandarse quede por encima de las demás */
+}
+
+/* Hacemos que todas las tarjetas tengan una transición suave de escala */
+.grid-productos .producto-card {
+    transition: transform 0.4s ease;
+}
+
+/* Nota: Para lograr que la tarjeta activa del carrusel haga zoom automático al deslizar, 
+   podemos darle un efecto estético con CSS puro o un pequeño toque en JS. 
+   Si querés un efecto visual moderno al hacer scroll horizontal en mobile, 
+   podemos asegurarnos de que el contenedor use scroll snap perfecto: */
+@media (max-width: 768px) {
+    .grid-productos {
+        scroll-snap-type: x mandatory;
+    }
+    .grid-productos .producto-card {
+        scroll-snap-align: center; /* Centra perfectamente la tarjeta en la pantalla del celu */
+    }
 }
