@@ -111,34 +111,36 @@ document.addEventListener("DOMContentLoaded", () => {
 
     grids.forEach(grid => {
         const tarjetas = grid.querySelectorAll(".producto-card");
-
         if (tarjetas.length === 0) return;
 
-        // Función que detecta cuál tarjeta está más centrada en el scroll horizontal
         const actualizarZoomCarrusel = () => {
-            // Solo aplicar en pantallas de celular / tablet chica
             if (window.innerWidth > 768) return;
 
             const gridRect = grid.getBoundingClientRect();
             const centroGrid = gridRect.left + gridRect.width / 2;
 
-            let tarjetaMasCercana = null;
-            let menorDistancia = Infinity;
-
             tarjetas.forEach(tarjeta => {
                 const tarjetaRect = tarjeta.getBoundingClientRect();
                 const centroTarjeta = tarjetaRect.left + tarjetaRect.width / 2;
+                
+                // Calculamos qué tan lejos está del centro (en píxeles)
                 const distancia = Math.abs(centroGrid - centroTarjeta);
+                const maxDistancia = gridRect.width / 2; // Rango de influencia
 
-                if (distancia < menorDistancia) {
-                    menorDistancia = distancia;
-                    tarjetaMasCercana = tarjeta;
-                }
-            });
+                // Normalizamos la distancia entre 0 (en el centro exacto) y 1 (lejos)
+                let factor = distancia / maxDistancia;
+                if (factor > 1) factor = 1;
 
-            // Actualizar clases: la más cercana al centro se agranda, las demás se achican
-            tarjetas.forEach(tarjeta => {
-                if (tarjeta === tarjetaMasCercana) {
+                // Aplicamos una escala gradual: en el centro es 1.05, en los costados baja a 0.88
+                const escala = 1.05 - (factor * 0.17); 
+                const opacidad = 1 - (factor * 0.3);
+
+                // Aplicamos el estilo directamente de forma suave y fluida
+                tarjeta.style.transform = `scale(${escala})`;
+                tarjeta.style.opacity = opacidad;
+
+                // Opcional: manejamos una clase si querés mantener sombras o z-index
+                if (factor < 0.25) {
                     tarjeta.classList.add("activa-centro");
                 } else {
                     tarjeta.classList.remove("activa-centro");
@@ -146,14 +148,14 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         };
 
-        // Escuchar el evento scroll dentro del carrusel con optimización (requestAnimationFrame)
+        // Escuchar el scroll del carrusel con total fluidez
         let isScrolling;
         grid.addEventListener("scroll", () => {
             window.cancelAnimationFrame(isScrolling);
             isScrolling = window.requestAnimationFrame(actualizarZoomCarrusel);
         }, { passive: true });
 
-        // Ejecutar al cargar la página para que la primera aparezca con zoom
+        // Ejecutar al cargar
         actualizarZoomCarrusel();
     });
 });
