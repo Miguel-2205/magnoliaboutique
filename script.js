@@ -105,3 +105,55 @@ function cambiarSlide(galeriaId, direccion) {
     
     slides[indexActual].classList.add('activa');
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    const grids = document.querySelectorAll(".grid-productos");
+
+    grids.forEach(grid => {
+        const tarjetas = grid.querySelectorAll(".producto-card");
+
+        if (tarjetas.length === 0) return;
+
+        // Función que detecta cuál tarjeta está más centrada en el scroll horizontal
+        const actualizarZoomCarrusel = () => {
+            // Solo aplicar en pantallas de celular / tablet chica
+            if (window.innerWidth > 768) return;
+
+            const gridRect = grid.getBoundingClientRect();
+            const centroGrid = gridRect.left + gridRect.width / 2;
+
+            let tarjetaMasCercana = null;
+            let menorDistancia = Infinity;
+
+            tarjetas.forEach(tarjeta => {
+                const tarjetaRect = tarjeta.getBoundingClientRect();
+                const centroTarjeta = tarjetaRect.left + tarjetaRect.width / 2;
+                const distancia = Math.abs(centroGrid - centroTarjeta);
+
+                if (distancia < menorDistancia) {
+                    menorDistancia = distancia;
+                    tarjetaMasCercana = tarjeta;
+                }
+            });
+
+            // Actualizar clases: la más cercana al centro se agranda, las demás se achican
+            tarjetas.forEach(tarjeta => {
+                if (tarjeta === tarjetaMasCercana) {
+                    tarjeta.classList.add("activa-centro");
+                } else {
+                    tarjeta.classList.remove("activa-centro");
+                }
+            });
+        };
+
+        // Escuchar el evento scroll dentro del carrusel con optimización (requestAnimationFrame)
+        let isScrolling;
+        grid.addEventListener("scroll", () => {
+            window.cancelAnimationFrame(isScrolling);
+            isScrolling = window.requestAnimationFrame(actualizarZoomCarrusel);
+        }, { passive: true });
+
+        // Ejecutar al cargar la página para que la primera aparezca con zoom
+        actualizarZoomCarrusel();
+    });
+});
