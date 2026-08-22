@@ -6,7 +6,7 @@ const listaProductos = [
         talles: "Varios Modelos",
         precio: "$12.000",
         destacado: false,
-        imagenes: ["img/accesorios/cinto/1.jpg",]
+        imagenes: ["img/accesorios/cinto/1.JPG",]
     },
      {
         categoria: "buzos",
