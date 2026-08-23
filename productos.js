@@ -93,7 +93,7 @@ const listaProductos = [
         destacado: false, // <-- Esto indica que es destacado
         imagenes: [
             "img/chaleco/scarlet/1.png",
-            "img/chaleco/scarlet/2.jpg"
+            "img/chaleco/scarlet/2.webp",
         ]
     },
     {
