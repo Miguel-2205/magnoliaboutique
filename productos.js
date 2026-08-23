@@ -185,7 +185,7 @@ const listaProductos = [
             "img/remeras/basica-larga/1.png",
             "img/remeras/basica-larga/3.png",
             "img/remeras/basica-larga/4.png",
-            "img/remeras/basica-larga/5.jpg"
+            "img/remeras/basica-larga/5.webp"
         ]
     },
      {
