@@ -10,11 +10,36 @@ const listaProductos = [
     },
      {
         categoria: "buzos",
-        nombre: "Buzo Oversize",
-        talles: "S, M, L",
-        precio: "$35.000",
+        nombre: "Buzo Corto",
+        talles: "Talle Unico",
+        precio: "$18.000",
         destacado: false,
-        imagenes: ["img/default.jpeg"]
+        imagenes: ["img/buzos/friz/1.webp",
+            "img/buzos/friz/2.webp",
+            "img/buzos/friz/3.webp",
+            "img/buzos/friz/4.jpeg"
+        ]
+    },
+      {
+        categoria: "buzos",
+        nombre: "Buzo con Cierre",
+        talles: "T1, T2, T3",
+        precio: "$18.000",
+        destacado: false,
+        imagenes: ["img/buzos/cierre/1.JPG",
+            "img/buzos/cierre/2.jpeg"
+        ]
+    },
+    {
+        categoria: "buzos",
+        nombre: "Buzo Estampados",
+        talles: "Talle Unico",
+        precio: "$18.000",
+        destacado: false,
+        imagenes: ["img/buzos/cali/1.JPG",
+            "img/buzos/cali/2.JPG",
+            "img/buzos/cali/3.JPG"
+        ]
     },
      {
         categoria: "calsas",
@@ -46,6 +71,18 @@ const listaProductos = [
         imagenes: [
             "img/camperas/tachas/1.JPG",
             "img/camperas/tachas/2.JPG"
+        ]
+    },
+    {
+        categoria: "camperas",
+        nombre: "Puffer con piel",
+        talles: "TL, TXL, TXXL",
+        precio: "$44.000",
+        destacado: false, // <-- Esto indica que es destacado
+        imagenes: [
+            "img/camperas/puffer/1.png",
+            "img/camperas/puffer/2.jpeg",
+            "img/camperas/puffer/3.jpeg"
         ]
     },
     {
@@ -92,11 +129,27 @@ const listaProductos = [
     },
     {
         categoria: "jeans",
-        nombre: "Chupin Azul",
-        talles: "38, 40, 42, 44, 46",
-        precio: "$20.000",
+        nombre: "Semi Recto de Hombre",
+        talles: "38, 40, 42, 44, 46, 48",
+        precio: "$32.000",
         destacado: false,
-        imagenes: ["img/jeans/chupin-azul.jpeg"]
+        imagenes: ["img/jeans/semirecto-hom/1.webp",
+            "img/jeans/semirecto-hom/2.png",
+            "img/jeans/semirecto-hom/3.jpeg",
+            "img/jeans/semirecto-hom/4.jpeg"
+        ]
+    },
+    {
+        categoria: "jeans",
+        nombre: "Chupin Azul de Hombre",
+        talles: "40, 42, 44, 46, 48",
+        precio: "$32.000",
+        destacado: false,
+        imagenes: ["img/jeans/chupin-hom/1.png",
+            "img/jeans/chupin-hom/2.png",
+            "img/jeans/chupin-hom/3.jpeg",
+            "img/jeans/chupin-hom/4.jpeg"
+        ]
     },
     {
         categoria: "jogging",
@@ -151,6 +204,18 @@ const listaProductos = [
         categoria: "remeras",
         nombre: "Body con Cierre",
         talles: "Talle Unico",
+        precio: "$14.00",
+        destacado: false,
+        imagenes: ["img/remeras/polera-termica/1.png",
+            "img/remeras/polera-termica/2.png",
+            "img/remeras/polera-termica/3.png",
+            "img/remeras/polera-termica/4.jpeg"
+        ]
+    },
+      {
+        categoria: "remeras",
+        nombre: "Polera termica",
+        talles: "Talle Unico",
         precio: "$8.500",
         destacado: false,
         imagenes: ["img/remeras/body-cierre/frente.png",
@@ -160,10 +225,12 @@ const listaProductos = [
     },
     {
         categoria: "vestido",
-        nombre: "Vestido Casual",
-        talles: "S, M, L",
+        nombre: "Milan",
+        talles: "Talle Unico",
         precio: "$25.000",
         destacado: false,
-        imagenes: ["img/default.jpeg"]
+        imagenes: ["img/vestidos/milan/1.png",
+            "img/vestidos/milan/2.jpeg"
+        ]
     }
 ];
