@@ -113,34 +113,29 @@ document.addEventListener("DOMContentLoaded", () => {
         const tarjetas = grid.querySelectorAll(".producto-card");
         if (tarjetas.length === 0) return;
 
-        const actualizarZoomCarrusel = () => {
+        const actualizarZoomFluido = () => {
             if (window.innerWidth > 768) return;
 
             const gridRect = grid.getBoundingClientRect();
             const centroGrid = gridRect.left + gridRect.width / 2;
 
+            let tarjetaMasCercana = null;
+            let menorDistancia = Infinity;
+
             tarjetas.forEach(tarjeta => {
                 const tarjetaRect = tarjeta.getBoundingClientRect();
                 const centroTarjeta = tarjetaRect.left + tarjetaRect.width / 2;
-                
-                // Calculamos qué tan lejos está del centro (en píxeles)
                 const distancia = Math.abs(centroGrid - centroTarjeta);
-                const maxDistancia = gridRect.width / 2; // Rango de influencia
 
-                // Normalizamos la distancia entre 0 (en el centro exacto) y 1 (lejos)
-                let factor = distancia / maxDistancia;
-                if (factor > 1) factor = 1;
+                if (distancia < menorDistancia) {
+                    menorDistancia = distancia;
+                    tarjetaMasCercana = tarjeta;
+                }
+            });
 
-                // Aplicamos una escala gradual: en el centro es 1.05, en los costados baja a 0.88
-                const escala = 1.05 - (factor * 0.17); 
-                const opacidad = 1 - (factor * 0.3);
-
-                // Aplicamos el estilo directamente de forma suave y fluida
-                tarjeta.style.transform = `scale(${escala})`;
-                tarjeta.style.opacity = opacidad;
-
-                // Opcional: manejamos una clase si querés mantener sombras o z-index
-                if (factor < 0.25) {
+            // Asignamos la clase activa solo a la tarjeta que esté más cerca del centro exacto
+            tarjetas.forEach(tarjeta => {
+                if (tarjeta === tarjetaMasCercana) {
                     tarjeta.classList.add("activa-centro");
                 } else {
                     tarjeta.classList.remove("activa-centro");
@@ -148,14 +143,18 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         };
 
-        // Escuchar el scroll del carrusel con total fluidez
-        let isScrolling;
+        // Optimizamos el evento scroll para que no se trabe en dispositivos móviles
+        let timeout;
         grid.addEventListener("scroll", () => {
-            window.cancelAnimationFrame(isScrolling);
-            isScrolling = window.requestAnimationFrame(actualizarZoomCarrusel);
+            if (timeout) {
+                window.cancelAnimationFrame(timeout);
+            }
+            timeout = window.requestAnimationFrame(() => {
+                actualizarZoomFluido();
+            });
         }, { passive: true });
 
-        // Ejecutar al cargar
-        actualizarZoomCarrusel();
+        // Ejecutar al cargar la página
+        actualizarZoomFluido();
     });
 });
