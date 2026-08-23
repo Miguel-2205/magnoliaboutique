@@ -591,25 +591,31 @@ body {
 /* Estado base de las tarjetas en el carrusel del celu: un poco más chicas y con efecto de profundidad */
 @media (max-width: 768px) {
     .grid-productos {
+        display: flex;
+        overflow-x: auto;
         scroll-snap-type: x mandatory;
-        /* Forzamos suavizado nativo del navegador para el scroll */
-        -webkit-overflow-scrolling: touch; 
+        scroll-behavior: smooth; /* Hace que las flechas se muevan suavemente */
+        -webkit-overflow-scrolling: touch;
+        gap: 15px;
+        padding: 20px 10px;
     }
 
     .grid-productos .producto-card {
-        /* Estado base de los productos que están a los costados (más chicos) */
-        transform: scale(0.85);
-        opacity: 0.6;
-        /* Transición ultra liviana usando GPU para evitar tirones */
-        transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), 
-                    opacity 0.3s ease;
+        flex: 0 0 82%; /* Ocupa casi todo el ancho para que se vea un solo producto claro a la vez */
+        scroll-snap-align: center; /* Centra perfectamente el producto activo */
+        
+        /* Efecto de zoom nativo súper suave basado en si está activa o no */
+        transform: scale(0.93);
+        opacity: 0.65;
+        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                    opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         will-change: transform, opacity;
     }
 
-    /* Cuando la tarjeta queda centrada en el scroll snap */
+    /* La tarjeta que quede centrada se agranda automáticamente con CSS puro */
     .grid-productos .producto-card.activa-centro {
-        transform: scale(1.05); /* Zoom in fluido */
-        opacity: 1;             /* Visibilidad total */
-        z-index: 10;
+        transform: scale(1);
+        opacity: 1;
+        z-index: 5;
     }
 }

@@ -108,53 +108,26 @@ function cambiarSlide(galeriaId, direccion) {
 
 document.addEventListener("DOMContentLoaded", () => {
     const grids = document.querySelectorAll(".grid-productos");
+    if (window.innerWidth > 768) return;
 
     grids.forEach(grid => {
         const tarjetas = grid.querySelectorAll(".producto-card");
         if (tarjetas.length === 0) return;
 
-        const actualizarZoomFluido = () => {
-            if (window.innerWidth > 768) return;
-
-            const gridRect = grid.getBoundingClientRect();
-            const centroGrid = gridRect.left + gridRect.width / 2;
-
-            let tarjetaMasCercana = null;
-            let menorDistancia = Infinity;
-
-            tarjetas.forEach(tarjeta => {
-                const tarjetaRect = tarjeta.getBoundingClientRect();
-                const centroTarjeta = tarjetaRect.left + tarjetaRect.width / 2;
-                const distancia = Math.abs(centroGrid - centroTarjeta);
-
-                if (distancia < menorDistancia) {
-                    menorDistancia = distancia;
-                    tarjetaMasCercana = tarjeta;
-                }
-            });
-
-            // Asignamos la clase activa solo a la tarjeta que esté más cerca del centro exacto
-            tarjetas.forEach(tarjeta => {
-                if (tarjeta === tarjetaMasCercana) {
-                    tarjeta.classList.add("activa-centro");
-                } else {
-                    tarjeta.classList.remove("activa-centro");
-                }
-            });
+        const observerOptions = {
+            root: grid,
+            threshold: 0.6 // Se activa cuando el 60% de la tarjeta está en el centro
         };
 
-        // Optimizamos el evento scroll para que no se trabe en dispositivos móviles
-        let timeout;
-        grid.addEventListener("scroll", () => {
-            if (timeout) {
-                window.cancelAnimationFrame(timeout);
-            }
-            timeout = window.requestAnimationFrame(() => {
-                actualizarZoomFluido();
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    tarjetas.forEach(t => t.classList.remove("activa-centro"));
+                    entry.target.classList.add("activa-centro");
+                }
             });
-        }, { passive: true });
+        }, observerOptions);
 
-        // Ejecutar al cargar la página
-        actualizarZoomFluido();
+        tarjetas.forEach(tarjeta => observer.observe(tarjeta));
     });
 });
