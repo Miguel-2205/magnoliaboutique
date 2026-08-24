@@ -1,4 +1,4 @@
-const listaProductos = [
+const productos = [
     // --- DESTACADOS (puedes marcar con true los que quieras que resalten) ---
     {
         categoria: "accesorios",
@@ -6,7 +6,7 @@ const listaProductos = [
         talles: "Varios Modelos",
         precio: "$12.000",
         destacado: false,
-        imagenes: ["img/accesorios/cinto/1.JPG",]
+        imagenes: ["img/accesorios/cinto/1.jpg",]
     },
      {
         categoria: "buzos",
@@ -27,7 +27,7 @@ const listaProductos = [
         precio: "$18.000",
         destacado: false,
         imagenes: ["img/buzos/cierre/1.JPG",
-            "img/buzos/cierre/2.jpeg"
+            "img/buzos/cierre/2.jpg"
         ]
     },
     {
@@ -36,9 +36,9 @@ const listaProductos = [
         talles: "Talle Unico",
         precio: "$18.000",
         destacado: false,
-        imagenes: ["img/buzos/cali/1.JPG",
-            "img/buzos/cali/2.JPG",
-            "img/buzos/cali/3.JPG"
+        imagenes: ["img/buzos/cali/1.jpg",
+            "img/buzos/cali/2.jpg",
+            "img/buzos/cali/3.jpg"
         ]
     },
      {
@@ -152,12 +152,50 @@ const listaProductos = [
         ]
     },
     {
+        categoria: "jeans",
+        nombre: "Baggi Nevado",
+        talles: "36, 40, 42, 44, 46",
+        precio: "$38.000",
+        destacado: false,
+        imagenes: ["img/jeans/baggi-nevado/1.jpg"
+        ]
+    },
+    {
+        categoria: "jeans",
+        nombre: "chupin Gris Nevado",
+        talles: "36, 40, 42, 44, 46",
+        precio: "$26.000",
+        destacado: false,
+        imagenes: ["img/jeans/chupin-gris/1.jpg"
+        ]
+    },
+    {
         categoria: "jogging",
-        nombre: "Joger Urbano",
-        talles: "T3, T5, T6",
+        nombre: "Joger con Puño - Mujer",
+        talles: "T2, T3, T5",
         precio: "$20.000",
         destacado: false,
-        imagenes: ["img/pantalones/joger.jpeg"]
+        imagenes: ["img/jogging/baggi-muj/1.jpg",
+            "img/jogging/baggi-muj/2.jpg",
+            "img/jogging/baggi-muj/3.jpg"]
+    },
+     {
+        categoria: "jogging",
+        nombre: "Joger Baggi - Mujer",
+        talles: "T2, T3",
+        precio: "$30.000",
+        destacado: false,
+        imagenes: ["img/jogging/puno-muj/1.jpg",
+            "img/jogging/puno-muj/2.jpg",
+            "img/jogging/puno-muj/3.jpg"]
+    },
+    {
+        categoria: "jogging",
+        nombre: "Joger 2 Lineas",
+        talles: "T2, T4",
+        precio: "$20.000",
+        destacado: false,
+        imagenes: ["img/jogging/2-lineas/1.jpg"]
     },
     {
         categoria: "musculosas",
@@ -221,6 +259,41 @@ const listaProductos = [
         imagenes: ["img/remeras/body-cierre/frente.png",
             "img/remeras/body-cierre/perfil.png",
             "img/remeras/body-cierre/espalda.png"
+        ]
+    },
+       {
+        categoria: "remeras",
+        nombre: "Body Morley",
+        talles: "Talle Unico",
+        precio: "$17.000",
+        destacado: false,
+        imagenes: ["img/remeras/body-morley/1.jpg",
+            "img/remeras/body-morley/2.jpg",
+            "img/remeras/body-morley/3.jpg"
+        ]
+    },
+      {
+        categoria: "remeras",
+        nombre: "Media Polera",
+        talles: "Talle Unico",
+        precio: "$11.000",
+        destacado: false,
+        imagenes: ["img/remeras/media-polera/1.jpg",
+            "img/remeras/media-polera/2.jpg",
+            "img/remeras/media-polera/3.jpg",
+            "img/remeras/media-polera/4.jpg"
+        ]
+    },
+      {
+        categoria: "remeras",
+        nombre: "Alo",
+        talles: "Talle Unico",
+        precio: "$7.000",
+        destacado: false,
+        imagenes: ["img/remeras/alo/1.jpg",
+            "img/remeras/alo/2.jpg",
+            "img/remeras/alo/3.jpg",
+            "img/remeras/alo/4.jpg"
         ]
     },
     {
