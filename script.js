@@ -43,14 +43,15 @@ function cambiarSlide(galeriaId, direccion) {
 function abrirLightbox(imagenesList, indiceInicial, elementoImg) {
     lightboxImgsArray = imagenesList;
     
-    // Buscamos exactamente el índice de la imagen en la que se hizo clic
+    // Buscamos con precisión quirúrgica cuál es la slide activa actualmente en esa tarjeta
     if (elementoImg) {
         const galeriaCard = elementoImg.closest('.galeria-manual');
         if (galeriaCard) {
             const slides = Array.from(galeriaCard.querySelectorAll('.img-slide'));
-            const indexReal = slides.indexOf(elementoImg);
-            if (indexReal !== -1) {
-                lightboxIndexActual = indexReal;
+            const indexActivoVisual = slides.findIndex(img => img.classList.contains('activa'));
+            
+            if (indexActivoVisual !== -1) {
+                lightboxIndexActual = indexActivoVisual;
             } else {
                 lightboxIndexActual = indiceInicial;
             }
@@ -167,7 +168,6 @@ function renderizarProductos(productosAMostrar) {
 
             listaImgs.forEach((imgSrc, imgIndex) => {
                 const claseActiva = imgIndex === 0 ? "img-slide activa" : "img-slide";
-                // AQUÍ ESTÁ EL CAMBIO CLAVE: Enviamos 'this' para que detecte exactamente la foto tocada
                 imagenesHTML += `<img src="${imgSrc}" alt="${prod.nombre}" class="${claseActiva}" onclick="abrirLightbox(${imgsJsonString}, ${imgIndex}, this)">`;
             });
 
@@ -204,9 +204,16 @@ function renderizarProductos(productosAMostrar) {
 
     contenedor.innerHTML = htmlContenido;
     
+    // Reconectamos controles y efectos después de renderizar el HTML nuevo
     setTimeout(() => {
         verificarFlechasCarrusel();
+        actualizarTarjetaActivaCelular();
     }, 50);
+
+    const grids = contenedor.querySelectorAll(".grid-productos");
+    grids.forEach(grid => {
+        grid.addEventListener("scroll", actualizarTarjetaActivaCelular);
+    });
 }
 
 // --- 5. Función para filtrar productos desde los botones del menú ---
@@ -265,20 +272,10 @@ function actualizarFlechas(grid) {
 
 window.addEventListener("resize", () => {
     verificarFlechasCarrusel();
+    actualizarTarjetaActivaCelular();
 });
 
-// --- 7. Carga inicial automática al abrir la página ---
-document.addEventListener("DOMContentLoaded", () => {
-    const datosACargar = typeof listaProductos !== 'undefined' ? listaProductos : (typeof productos !== 'undefined' ? productos : null);
-
-    if (datosACargar) {
-        renderizarProductos(datosACargar);
-    } else {
-        console.error("No se encontró ninguna lista de productos cargada.");
-    }
-});
-
-// --- CONTROL DE OPACIDAD PARA EL CARRUSEL EN CELULARES ---
+// --- CONTROL DE OPACIDAD Y ZOOM PARA EL CARRUSEL EN CELULARES ---
 function actualizarTarjetaActivaCelular() {
     if (window.innerWidth > 768) return;
 
@@ -311,13 +308,18 @@ function actualizarTarjetaActivaCelular() {
     });
 }
 
-// Escuchamos el scroll en los carruseles y la carga inicial
+// --- 7. Carga inicial automática al abrir la página ---
 document.addEventListener("DOMContentLoaded", () => {
-    setTimeout(actualizarTarjetaActivaCelular, 100);
+    const datosACargar = typeof listaProductos !== 'undefined' ? listaProductos : (typeof productos !== 'undefined' ? productos : null);
+
+    if (datosACargar) {
+        renderizarProductos(datosACargar);
+    } else {
+        console.error("No se encontró ninguna lista de productos cargada.");
+    }
+
     const grids = document.querySelectorAll(".grid-productos");
     grids.forEach(grid => {
         grid.addEventListener("scroll", actualizarTarjetaActivaCelular);
     });
 });
-
-window.addEventListener("resize", actualizarTarjetaActivaCelular);
