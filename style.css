@@ -548,22 +548,18 @@ body {
         padding-bottom: 0;
     }
 
-    .grid-productos {
-        scroll-snap-type: x mandatory;
-        scroll-behavior: smooth;
-        -webkit-overflow-scrolling: touch;
-        gap: 15px;
-        padding: 20px 10px;
-    }
-
-    .grid-productos .producto-card {
+.grid-productos .producto-card {
         flex: 0 0 82%;
         scroll-snap-align: center;
         transform: scale(0.93);
-        opacity: 0.65;
-        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
-                    opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        will-change: transform, opacity;
+        opacity: 0.45; /* Las de los costados se verán más atenuadas */
+        transition: transform 0.4s ease, opacity 0.4s ease;
+    }
+
+    .grid-productos .producto-card.activa-centro {
+        transform: scale(1);
+        opacity: 1; /* La del centro se ve totalmente nítida y opacidad completa */
+        z-index: 5;
     }
 
     .grid-productos .producto-card.activa-centro {

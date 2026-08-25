@@ -277,3 +277,47 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("No se encontró ninguna lista de productos cargada.");
     }
 });
+
+// --- CONTROL DE OPACIDAD PARA EL CARRUSEL EN CELULARES ---
+function actualizarTarjetaActivaCelular() {
+    if (window.innerWidth > 768) return;
+
+    const grids = document.querySelectorAll(".grid-productos");
+    grids.forEach(grid => {
+        const tarjetas = grid.querySelectorAll(".producto-card");
+        if (tarjetas.length === 0) return;
+
+        const gridRect = grid.getBoundingClientRect();
+        const centroGrid = gridRect.left + gridRect.width / 2;
+
+        let tarjetaCercana = null;
+        let menorDistancia = Infinity;
+
+        tarjetas.forEach(tarjeta => {
+            const tarjetaRect = tarjeta.getBoundingClientRect();
+            const centroTarjeta = tarjetaRect.left + tarjetaRect.width / 2;
+            const distancia = Math.abs(centroGrid - centroTarjeta);
+
+            if (distancia < menorDistancia) {
+                menorDistancia = distancia;
+                tarjetaCercana = tarjeta;
+            }
+        });
+
+        tarjetas.forEach(tarjeta => tarjeta.classList.remove("activa-centro"));
+        if (tarjetaCercana) {
+            tarjetaCercana.classList.add("activa-centro");
+        }
+    });
+}
+
+// Escuchamos el scroll en los carruseles y la carga inicial
+document.addEventListener("DOMContentLoaded", () => {
+    setTimeout(actualizarTarjetaActivaCelular, 100);
+    const grids = document.querySelectorAll(".grid-productos");
+    grids.forEach(grid => {
+        grid.addEventListener("scroll", actualizarTarjetaActivaCelular);
+    });
+});
+
+window.addEventListener("resize", actualizarTarjetaActivaCelular);

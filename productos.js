@@ -80,7 +80,7 @@ const productos = [
         precio: "$44.000",
         destacado: false, // <-- Esto indica que es destacado
         imagenes: [
-            "img/camperas/puffer/1.png",
+            "img/camperas/puffer/1.jpg",
             "img/camperas/puffer/2.jpeg",
             "img/camperas/puffer/3.jpeg"
         ]
@@ -92,8 +92,8 @@ const productos = [
         precio: "$32.000",
         destacado: false, // <-- Esto indica que es destacado
         imagenes: [
-            "img/chaleco/scarlet/1.png",
-            "img/chaleco/scarlet/2.webp",
+            "img/chaleco/scarlet/1.jpg",
+            "img/chaleco/scarlet/2.jpg"
         ]
     },
     {
@@ -134,9 +134,9 @@ const productos = [
         precio: "$32.000",
         destacado: false,
         imagenes: ["img/jeans/semirecto-hom/1.webp",
-            "img/jeans/semirecto-hom/2.png",
-            "img/jeans/semirecto-hom/3.jpeg",
-            "img/jeans/semirecto-hom/4.jpeg"
+            "img/jeans/semirecto-hom/2.jpg",
+            "img/jeans/semirecto-hom/3.jpg",
+            "img/jeans/semirecto-hom/4.jpg"
         ]
     },
     {
@@ -145,10 +145,10 @@ const productos = [
         talles: "40, 42, 44, 46, 48",
         precio: "$32.000",
         destacado: false,
-        imagenes: ["img/jeans/chupin-hom/1.png",
-            "img/jeans/chupin-hom/2.png",
-            "img/jeans/chupin-hom/3.jpeg",
-            "img/jeans/chupin-hom/4.jpeg"
+        imagenes: ["img/jeans/chupin-hom/1.jpg",
+            "img/jeans/chupin-hom/2.jpg",
+            "img/jeans/chupin-hom/3.jpg",
+            "img/jeans/chupin-hom/4.jpg"
         ]
     },
     {
@@ -219,11 +219,11 @@ const productos = [
         talles: "L, 2XL",
         precio: "$8.000",
         destacado: false,
-        imagenes: ["img/remeras/basica-larga/2.png",
-            "img/remeras/basica-larga/1.png",
-            "img/remeras/basica-larga/3.png",
-            "img/remeras/basica-larga/4.png",
-            "img/remeras/basica-larga/5.webp"
+        imagenes: ["img/remeras/basica-larga/1.jpg",
+            "img/remeras/basica-larga/2.jpg",
+            "img/remeras/basica-larga/3.jpg",
+            "img/remeras/basica-larga/4.jpg",
+            "img/remeras/basica-larga/5.jpg"
         ]
     },
      {
@@ -232,9 +232,9 @@ const productos = [
         talles: "T3, T6",
         precio: "$12.000",
         destacado: false,
-        imagenes: ["img/remeras/manga-princesa/1.png",
-            "img/remeras/manga-princesa/2.png",
-            "img/remeras/manga-princesa/3.png",
+        imagenes: ["img/remeras/manga-princesa/1.jpg",
+            "img/remeras/manga-princesa/2.jpg",
+            "img/remeras/manga-princesa/3.jpg",
             "img/remeras/manga-princesa/4.jpg"
         ]
     },
@@ -242,23 +242,23 @@ const productos = [
         categoria: "remeras",
         nombre: "Body con Cierre",
         talles: "Talle Unico",
-        precio: "$14.00",
+        precio: "$17.0.00",
         destacado: false,
-        imagenes: ["img/remeras/polera-termica/1.png",
-            "img/remeras/polera-termica/2.png",
-            "img/remeras/polera-termica/3.png",
-            "img/remeras/polera-termica/4.jpeg"
+        imagenes: ["img/remeras/body-cierre/frente.jpg",
+            "img/remeras/body-cierre/perfil.jpg",
+            "img/remeras/body-cierre/espalda.jpg"
         ]
     },
       {
         categoria: "remeras",
         nombre: "Polera termica",
         talles: "Talle Unico",
-        precio: "$8.500",
+        precio: "$14.000",
         destacado: false,
-        imagenes: ["img/remeras/body-cierre/frente.png",
-            "img/remeras/body-cierre/perfil.png",
-            "img/remeras/body-cierre/espalda.png"
+        imagenes: ["img/remeras/polera-termica/1.jpg",
+            "img/remeras/polera-termica/2.jpg",
+            "img/remeras/polera-termica/3.jpg",
+            "img/remeras/polera-termica/4.jpg"
         ]
     },
        {
@@ -302,8 +302,8 @@ const productos = [
         talles: "Talle Unico",
         precio: "$25.000",
         destacado: false,
-        imagenes: ["img/vestidos/milan/1.png",
-            "img/vestidos/milan/2.jpeg"
+        imagenes: ["img/vestidos/milan/1.jpg",
+            "img/vestidos/milan/2.jpg"
         ]
     }
 ];
