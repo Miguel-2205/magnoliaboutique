@@ -41,6 +41,39 @@ const productos = [
             "img/buzos/cali/3.jpg"
         ]
     },
+    {
+        categoria: "buzos",
+        nombre: "Buzo Bordados",
+        talles: "Talle Unico - Consultar por mas colores",
+        precio: "$28.000",
+        destacado: false,
+        imagenes: ["img/buzos/monaco/1.jpg",
+            "img/buzos/monaco/2.jpg",
+            "img/buzos/monaco/3.jpg",
+            "img/buzos/monaco/4.jpg"
+        ]
+    },
+    {
+        categoria: "buzos",
+        nombre: "Darlon",
+        talles: "M, L, XL, XXL, XXXL",
+        precio: "$24.000",
+        destacado: false,
+        imagenes: ["img/buzos/darlon-hom/1.jpg"
+        ]
+    },
+    {
+        categoria: "buzos",
+        nombre: "Morles con Cierre",
+        talles: "Talle Unico",
+        precio: "$11.000",
+        destacado: false,
+        imagenes: ["img/buzos/luna/1.jpg",
+            "img/buzos/luna/2.jpg",
+            "img/buzos/luna/3.jpg",
+            "img/buzos/luna/4.jpg"
+        ]
+    },
      {
         categoria: "calsas",
         nombre: "Calsa Deportiva",
@@ -106,14 +139,6 @@ const productos = [
             "img/chaleco/puffer/2.JPG"
         ]
     },
-      {
-        categoria: "conjuntos",
-        nombre: "Conjunto Urbano",
-        talles: "S, M",
-        precio: "$45.000",
-        destacado: false,
-        imagenes: ["img/default.jpeg"]
-    },
     {
         categoria: "jeans",
         nombre: "Chupin con Brillo",
@@ -162,11 +187,29 @@ const productos = [
     },
     {
         categoria: "jeans",
-        nombre: "chupin Gris Nevado",
+        nombre: "Chupin Gris Nevado",
         talles: "36, 40, 42, 44, 46",
         precio: "$26.000",
         destacado: false,
         imagenes: ["img/jeans/chupin-gris/1.jpg"
+        ]
+    },
+      {
+        categoria: "jeans",
+        nombre: "chupin Negro",
+        talles: "36, 40, 42, 44, 46",
+        precio: "$28.000",
+        destacado: false,
+        imagenes: ["img/jeans/chupin-negro/1.jpg"
+        ]
+    },
+      {
+        categoria: "jeans",
+        nombre: "chupin Azul",
+        talles: "36, 40, 42, 44, 46",
+        precio: "$20.000",
+        destacado: false,
+        imagenes: ["img/jeans/chupin-azul/1.jpg"
         ]
     },
     {
@@ -197,13 +240,16 @@ const productos = [
         destacado: false,
         imagenes: ["img/jogging/2-lineas/1.jpg"]
     },
-    {
+     {
         categoria: "musculosas",
-        nombre: "Musculosa Básica",
-        talles: "T4, T6, T10",
-        precio: "$6.000",
+        nombre: "Bremer",
+        talles: "Talle Unico",
+        precio: "$30.000",
         destacado: false,
-        imagenes: ["img/remeras/musculosa.jpeg"]
+        imagenes: ["img/musculosas/bremer/1.jpg",
+            "img/musculosas/bremer/2.jpg",
+            "img/musculosas/bremer/3.jpg"
+        ]
     },
     {
         categoria: "pantalones",
@@ -296,6 +342,27 @@ const productos = [
             "img/remeras/alo/4.jpg"
         ]
     },
+      {
+        categoria: "remeras",
+        nombre: "Gina",
+        talles: "Talle Unico",
+        precio: "$10.000",
+        destacado: false,
+        imagenes: ["img/remeras/gina/1.jpg",
+            "img/remeras/gina/2.jpg",
+            "img/remeras/gina/3.jpg"
+        ]
+    },
+     {
+        categoria: "remeras",
+        nombre: "Siena",
+        talles: "Talle Unico",
+        precio: "$10.000",
+        destacado: false,
+        imagenes: ["img/remeras/siena/1.jpg",
+            "img/remeras/siena/2.jpg"
+        ]
+    },
     {
         categoria: "vestido",
         nombre: "Milan",
@@ -304,6 +371,29 @@ const productos = [
         destacado: false,
         imagenes: ["img/vestidos/milan/1.jpg",
             "img/vestidos/milan/2.jpg"
+        ]
+    },
+     {
+        categoria: "vestido",
+        nombre: "Sol",
+        talles: "Talle Unico",
+        precio: "$12.000",
+        destacado: false,
+        imagenes: ["img/vestidos/sol/1.jpg",
+            "img/vestidos/sol/2.jpg",
+            "img/vestidos/sol/3.jpg"
+        ]
+    },
+     {
+        categoria: "vestido",
+        nombre: "Paris",
+        talles: "Talle Unico",
+        precio: "$15.000",
+        destacado: false,
+        imagenes: ["img/vestidos/paris/1.jpg",
+            "img/vestidos/paris/2.jpg",
+            "img/vestidos/paris/3.jpg",
+            "img/vestidos/paris/4.jpg"
         ]
     }
 ];
