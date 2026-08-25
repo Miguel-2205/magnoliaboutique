@@ -548,13 +548,15 @@ body {
         padding-bottom: 0;
     }
 
-    /* --- BLOQUEAR ZOOM MOLESTO AL TOCAR RÁPIDO EN CELULARES --- */
+ /* --- BLOQUEAR ZOOM MOLESTO AL TOCAR RÁPIDO EN CELULARES --- */
 @media (max-width: 768px) {
     .grid-productos .producto-card,
     .galeria-manual,
     .imagenes-container,
-    .img-slide {
-        touch-action: manipulation; /* Desactiva el zoom por doble toque en las tarjetas */
+    .img-slide,
+    .flecha-galeria,
+    .flecha-slider-cat {
+        touch-action: manipulation; /* Desactiva el zoom por doble toque en tarjetas, contenedores y flechas */
     }
 }
 .grid-productos .producto-card {
