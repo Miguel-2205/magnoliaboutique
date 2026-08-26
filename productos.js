@@ -75,12 +75,14 @@ const productos = [
         ]
     },
      {
-        categoria: "calsas",
-        nombre: "Calsa Deportiva",
-        talles: "1, 2, 3",
+        categoria: "calzas",
+        nombre: "Calza Oxford",
+        talles: "1, 2, 3, 5",
         precio: "$18.000",
         destacado: false,
-        imagenes: ["img/default.jpeg"]
+        imagenes: ["img/calzas/oxford/1.jpg",
+            "img/calzas/oxford/2.jpg"
+        ]
     },
     {
         categoria: "camperas",
@@ -210,6 +212,16 @@ const productos = [
         precio: "$20.000",
         destacado: false,
         imagenes: ["img/jeans/chupin-azul/1.jpg"
+        ]
+    },
+    {
+        categoria: "jeans",
+        nombre: "Wide Leg Semi Eslatizado",
+        talles: "36, 40, 42, 44, 46",
+        precio: "$41.000",
+        destacado: false,
+        imagenes: ["img/jeans/widleg-sem/1.jpg",
+            "img/jeans/widleg-sem/2.jpg"
         ]
     },
     {
