@@ -10,7 +10,7 @@ const productos = [
     },
      {
         categoria: "buzos",
-        nombre: "Buzo Corto",
+        nombre: "Buzo Corto - A07",
         talles: "Talle Unico",
         precio: "$18.000",
         destacado: false,
@@ -22,7 +22,7 @@ const productos = [
     },
       {
         categoria: "buzos",
-        nombre: "Buzo con Cierre",
+        nombre: "Buzo con Cierre - A34",
         talles: "T1, T2, T3",
         precio: "$18.000",
         destacado: false,
@@ -32,9 +32,9 @@ const productos = [
     },
     {
         categoria: "buzos",
-        nombre: "Buzo Estampados",
+        nombre: "Buzo Estampados - A08",
         talles: "Talle Unico",
-        precio: "$18.000",
+        precio: "$26.000",
         destacado: false,
         imagenes: ["img/buzos/cali/1.jpg",
             "img/buzos/cali/2.jpg",
@@ -43,7 +43,7 @@ const productos = [
     },
     {
         categoria: "buzos",
-        nombre: "Buzo Bordados",
+        nombre: "Buzo Bordados - A03",
         talles: "Talle Unico - Consultar por mas colores",
         precio: "$28.000",
         destacado: false,
@@ -55,28 +55,38 @@ const productos = [
     },
     {
         categoria: "buzos",
-        nombre: "Darlon",
+        nombre: "Darlon - A27",
         talles: "M, L, XL, XXL, XXXL",
         precio: "$24.000",
         destacado: false,
         imagenes: ["img/buzos/darlon-hom/1.jpg"
         ]
     },
+
     {
         categoria: "buzos",
-        nombre: "Morles con Cierre",
+        nombre: "Sweater Rayado Largo - A20",
         talles: "Talle Unico",
-        precio: "$11.000",
+        precio: "$20.000",
         destacado: false,
-        imagenes: ["img/buzos/luna/1.jpg",
-            "img/buzos/luna/2.jpg",
-            "img/buzos/luna/3.jpg",
-            "img/buzos/luna/4.jpg"
+        imagenes: ["img/buzos/rayado-largo/1.jpg",
+            "img/buzos/rayado-largo/2.jpg"
+        ]
+    },
+    {
+        categoria: "buzos",
+        nombre: "Sweater con Brillo - A16",
+        talles: "Talle Unico",
+        precio: "$32.000",
+        destacado: false,
+        imagenes: ["img/buzos/brillo/1.jpg",
+            "img/buzos/brillo/2.jpg",
+            "img/buzos/brillo/3.jpg"
         ]
     },
      {
         categoria: "calzas",
-        nombre: "Calza Oxford",
+        nombre: "Calza Oxford - A2007",
         talles: "1, 2, 3, 5",
         precio: "$18.000",
         destacado: false,
@@ -86,7 +96,7 @@ const productos = [
     },
     {
         categoria: "camperas",
-        nombre: "Campera Plush",
+        nombre: "Campera Plush - A501",
         talles: "T3, T6",
         precio: "$20.000",
         destacado: false, // <-- Esto indica que es destacado
@@ -99,7 +109,7 @@ const productos = [
     },
     {
         categoria: "camperas",
-        nombre: "Jeans con Tachas",
+        nombre: "Jeans con Tachas - A507",
         talles: "T1, T3, T6",
         precio: "$30.000",
         destacado: false, // <-- Esto indica que es destacado
@@ -110,7 +120,7 @@ const productos = [
     },
     {
         categoria: "camperas",
-        nombre: "Puffer con piel",
+        nombre: "Puffer con piel - A503",
         talles: "TL, TXL, TXXL",
         precio: "$44.000",
         destacado: false, // <-- Esto indica que es destacado
@@ -122,7 +132,7 @@ const productos = [
     },
     {
         categoria: "chaleco",
-        nombre: "Scarlet",
+        nombre: "Scarlet - A1003",
         talles: "T2, T3",
         precio: "$32.000",
         destacado: false, // <-- Esto indica que es destacado
@@ -133,7 +143,7 @@ const productos = [
     },
     {
         categoria: "chaleco",
-        nombre: "Chaleco Puffer",
+        nombre: "Chaleco Puffer - A1001",
         talles: "TM, TL, XL",
         precio: "$30.000",
         destacado: false,
@@ -143,7 +153,7 @@ const productos = [
     },
     {
         categoria: "jeans",
-        nombre: "Chupin con Brillo",
+        nombre: "Chupin con Brillo - A2012",
         talles: "Del 38 al 50",
         precio: "$38.000",
         destacado: true, // <-- Esto indica que es destacado
@@ -156,7 +166,7 @@ const productos = [
     },
     {
         categoria: "jeans",
-        nombre: "Semi Recto de Hombre",
+        nombre: "Semi Recto de Hombre - A2109",
         talles: "38, 40, 42, 44, 46, 48",
         precio: "$32.000",
         destacado: false,
@@ -168,7 +178,7 @@ const productos = [
     },
     {
         categoria: "jeans",
-        nombre: "Chupin Azul de Hombre",
+        nombre: "Chupin Azul de Hombre - A2115",
         talles: "40, 42, 44, 46, 48",
         precio: "$32.000",
         destacado: false,
@@ -180,7 +190,7 @@ const productos = [
     },
     {
         categoria: "jeans",
-        nombre: "Baggi Nevado",
+        nombre: "Baggi Nevado - A2007",
         talles: "36, 40, 42, 44, 46",
         precio: "$38.000",
         destacado: false,
@@ -189,7 +199,7 @@ const productos = [
     },
     {
         categoria: "jeans",
-        nombre: "Chupin Gris Nevado",
+        nombre: "Chupin Gris Nevado - A2070",
         talles: "36, 40, 42, 44, 46",
         precio: "$26.000",
         destacado: false,
@@ -198,7 +208,7 @@ const productos = [
     },
       {
         categoria: "jeans",
-        nombre: "chupin Negro",
+        nombre: "chupin Negro - A2023",
         talles: "36, 40, 42, 44, 46",
         precio: "$28.000",
         destacado: false,
@@ -207,7 +217,7 @@ const productos = [
     },
       {
         categoria: "jeans",
-        nombre: "chupin Azul",
+        nombre: "chupin Azul - A2018",
         talles: "36, 40, 42, 44, 46",
         precio: "$20.000",
         destacado: false,
@@ -226,23 +236,23 @@ const productos = [
     },
     {
         categoria: "jogging",
-        nombre: "Joger con Puño - Mujer",
+        nombre: "Joger con Puño de Mujer - A2059",
         talles: "T2, T3, T5",
         precio: "$20.000",
-        destacado: false,
-        imagenes: ["img/jogging/baggi-muj/1.jpg",
-            "img/jogging/baggi-muj/2.jpg",
-            "img/jogging/baggi-muj/3.jpg"]
-    },
-     {
-        categoria: "jogging",
-        nombre: "Joger Baggi - Mujer",
-        talles: "T2, T3",
-        precio: "$30.000",
         destacado: false,
         imagenes: ["img/jogging/puno-muj/1.jpg",
             "img/jogging/puno-muj/2.jpg",
             "img/jogging/puno-muj/3.jpg"]
+    },
+     {
+        categoria: "jogging",
+        nombre: "Joger Baggi de Mujer - A2057",
+        talles: "T2, T3",
+        precio: "$30.000",
+        destacado: false,
+        imagenes: ["img/jogging/baggi-muj/1.jpg",
+            "img/jogging/baggi-muj/2.jpg",
+            "img/jogging/baggi-muj/3.jpg"]
     },
     {
         categoria: "jogging",
@@ -254,7 +264,7 @@ const productos = [
     },
      {
         categoria: "musculosas",
-        nombre: "Bremer",
+        nombre: "Bremer - A2540",
         talles: "Talle Unico",
         precio: "$30.000",
         destacado: false,
@@ -264,16 +274,8 @@ const productos = [
         ]
     },
     {
-        categoria: "pantalones",
-        nombre: "Chupin Negro",
-        talles: "38, 40, 42, 44",
-        precio: "$28.000",
-        destacado: false,
-        imagenes: ["img/pantalones/chupin-negro.jpeg"]
-    },
-    {
         categoria: "remeras",
-        nombre: "Manga Larga",
+        nombre: "Manga Larga - A2009",
         talles: "L, 2XL",
         precio: "$8.000",
         destacado: false,
@@ -286,7 +288,7 @@ const productos = [
     },
      {
         categoria: "remeras",
-        nombre: "Manga Princesa",
+        nombre: "Manga Princesa - A2525",
         talles: "T3, T6",
         precio: "$12.000",
         destacado: false,
@@ -298,7 +300,7 @@ const productos = [
     },
     {
         categoria: "remeras",
-        nombre: "Body con Cierre",
+        nombre: "Body con Cierre - A2547",
         talles: "Talle Unico",
         precio: "$17.0.00",
         destacado: false,
@@ -309,7 +311,7 @@ const productos = [
     },
       {
         categoria: "remeras",
-        nombre: "Polera termica",
+        nombre: "Polera termica - A2532",
         talles: "Talle Unico",
         precio: "$14.000",
         destacado: false,
@@ -321,7 +323,7 @@ const productos = [
     },
        {
         categoria: "remeras",
-        nombre: "Body Morley",
+        nombre: "Body Morley - A2548",
         talles: "Talle Unico",
         precio: "$17.000",
         destacado: false,
@@ -332,7 +334,7 @@ const productos = [
     },
       {
         categoria: "remeras",
-        nombre: "Media Polera",
+        nombre: "Media Polera - A2544",
         talles: "Talle Unico",
         precio: "$11.000",
         destacado: false,
@@ -344,7 +346,7 @@ const productos = [
     },
       {
         categoria: "remeras",
-        nombre: "Alo",
+        nombre: "Alo - A2527",
         talles: "Talle Unico",
         precio: "$7.000",
         destacado: false,
@@ -376,8 +378,20 @@ const productos = [
         ]
     },
     {
+        categoria: "remeras",
+        nombre: "Morley con Cierre - A2549",
+        talles: "Talle Unico",
+        precio: "$11.000",
+        destacado: false,
+        imagenes: ["img/remeras/luna/1.jpg",
+            "img/remeras/luna/2.jpg",
+            "img/remeras/luna/3.jpg",
+            "img/remeras/luna/4.jpg"
+        ]
+    },
+    {
         categoria: "vestido",
-        nombre: "Milan",
+        nombre: "Milan - A3003",
         talles: "Talle Unico",
         precio: "$25.000",
         destacado: false,
