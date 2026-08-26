@@ -60,9 +60,9 @@ body {
 }
 
 .dropdown-toggle:hover {
-    background-color: #333;
+    background-color: #c0392b;
     color: #fff;
-    border-color: #333;
+    border-color: #c0392b;
 }
 
 .dropdown-menu {
@@ -464,9 +464,9 @@ body {
 }
 
 .menu-filtros button:hover {
-    background-color: #333333;
+    background-color: #c0392b;
     color: #ffffff;
-    border-color: #333333;
+    border-color: #c0392b;
     transform: translateY(-2px);
 }
 
