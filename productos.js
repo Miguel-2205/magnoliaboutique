@@ -101,7 +101,7 @@ const productos = [
         precio: "$30.000",
         destacado: false, // <-- Esto indica que es destacado
         imagenes: [
-            "img/camperas/jean-negra/1.JPG"
+            "img/camperas/jean-negra/1.jpg"
         ]
     },
     {
