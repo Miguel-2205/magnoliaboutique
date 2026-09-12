@@ -96,9 +96,9 @@ const productos = [
     },
     {
         categoria: "camperas",
-        nombre: "Jean Negra - A000",
+        nombre: "Jean Negra - A533",
         talles: "T1 - T2 - T3 - T4",
-        precio: "$00.000",
+        precio: "$30.000",
         destacado: false, // <-- Esto indica que es destacado
         imagenes: [
             "img/camperas/jean-negra/1.JPG"
@@ -142,6 +142,17 @@ const productos = [
     },
     {
         categoria: "chaleco",
+        nombre: "Chaleco de Lana - A38",
+        talles: "Talle Unico",
+        precio: "$21.000",
+        destacado: false, // <-- Esto indica que es destacado
+        imagenes: [
+            "img/chaleco/lana/1.jpg",
+            "img/chaleco/lana/2.jpg"
+        ]
+    },
+    {
+        categoria: "chaleco",
         nombre: "Scarlet - A1003",
         talles: "T2, T3",
         precio: "$32.000",
@@ -172,6 +183,15 @@ const productos = [
             "img/jeans/chupin-brillo/perfil.jpeg",
             "img/jeans/chupin-brillo/espalda.jpeg",
             "img/jeans/chupin-brillo/detalle.jpeg",
+        ]
+    },
+    {
+        categoria: "jeans",
+        nombre: "Cargo - A2121",
+        talles: "40 - 42 - 44 - 46 - 48",
+        precio: "$35.000",
+        destacado: false,
+        imagenes: ["img/jeans/cargo-hom/1.jpg"
         ]
     },
     {
@@ -281,6 +301,45 @@ const productos = [
         imagenes: ["img/musculosas/bremer/1.jpg",
             "img/musculosas/bremer/2.jpg",
             "img/musculosas/bremer/3.jpg"
+        ]
+    },
+     {
+        categoria: "remeras",
+        nombre: "Tachas - A2566",
+        talles: "Talle Unico",
+        precio: "$15.000",
+        destacado: false,
+        imagenes: ["img/remeras/tachas/1.jpg",
+            "img/remeras/tachas/2.jpg",
+            "img/remeras/tachas/3.jpg"
+        ]
+    },
+    {
+        categoria: "remeras",
+        nombre: "Pupera Panal - A2559",
+        talles: "Talle Unico",
+        precio: "$8.000",
+        destacado: false,
+        imagenes: ["img/remeras/pupera-panal/1.jpg",
+            "img/remeras/pupera-panal/2.jpg",
+        ]
+    },
+     {
+        categoria: "remeras",
+        nombre: "Estampada - A2561",
+        talles: "T2 - T3 - T4 - T5",
+        precio: "$17.000",
+        destacado: false,
+        imagenes: ["img/remeras/estampada/1.jpg"
+        ]
+    },
+     {
+        categoria: "remeras",
+        nombre: "Chomba - A2555",
+        talles: "T1 - T3 - T6",
+        precio: "$26.000",
+        destacado: false,
+        imagenes: ["img/remeras/chomba-hom/1.jpg"
         ]
     },
     {
@@ -421,9 +480,9 @@ const productos = [
     },
     {
         categoria: "remeras",
-        nombre: "Pupera Neveda - A0000",
+        nombre: "Pupera Neveda - A2556",
         talles: "Talle Unico",
-        precio: "$00.000",
+        precio: "$11.000",
         destacado: false,
         imagenes: ["img/remeras/pupera/1.jpg"
         ]
