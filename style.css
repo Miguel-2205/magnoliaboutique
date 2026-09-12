@@ -257,7 +257,7 @@ body {
     font-weight: 600;
     font-size: 0.85rem;
     letter-spacing: 1px;
-    border-radius: 2px;
+    border-radius: 25px;
     margin-top: auto;
     transition: background 0.3s ease;
 }
@@ -671,4 +671,77 @@ body {
 /* Ocultar flechas del lightbox si el producto tiene 1 sola imagen */
 .lightbox-flecha.oculta {
     display: none;
+}
+
+#modalCarrito.activo {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+}
+/* --- BOTÓN FLOTANTE DEL CARRITO EN CELULAR (Estilo Burbuja) --- */
+.carrito-header-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px; /* Del lado izquierdo, simétrico a WhatsApp */
+    background-color: #ffffff;
+    color: #333333;
+    border: 1px solid #dcdcdc;
+    padding: 12px 18px;
+    border-radius: 50px;
+    cursor: pointer;
+    z-index: 999;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: bold;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+.carrito-header-btn.tiene-productos {
+    background-color: #e74c3c !important;
+    color: #ffffff !important;
+    border-color: #e74c3c !important;
+}
+
+/* Animación de latido */
+@keyframes latidoCarrito {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+}
+.carrito-header-btn.animar-latido {
+    animation: latidoCarrito 0.4s ease-in-out;
+}
+
+/* --- DISEÑO INTERNO DEL MODAL DEL CARRITO (Total Fijo y Scroll Separado) --- */
+.modal-carrito-contenido {
+    background: #fff; 
+    width: 90%; 
+    max-width: 420px; 
+    border-radius: 20px; 
+    padding: 20px 20px 15px 20px; 
+    position: relative; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    display: flex;
+    flex-direction: column;
+    max-height: 85vh;
+}
+
+/* Contenedor de la lista con scroll corrido hacia la izquierda para no pisar el tachito */
+#carrito-items {
+    overflow-y: auto; 
+    max-height: 40vh; 
+    margin: 10px 0; 
+    padding-right: 12px; /* Espacio para que la barra de scroll no pise los iconos */
+}
+
+/* Personalización elegante de la barra de desplazamiento */
+#carrito-items::-webkit-scrollbar {
+    width: 6px;
+}
+#carrito-items::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 10px;
 }

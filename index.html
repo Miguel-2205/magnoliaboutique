@@ -11,21 +11,55 @@
     <script src="config.js"></script>
 </head>
 <body>
-    <!-- HEADER CON MENÚ DESPLEGABLE PERSONALIZADO -->
+    <!-- HEADER CON MENÚ DESPLEGABLE Y CARRITO SUPERIOR -->
     <header class="header">
         <div class="logo">MAGNOLIA</div>
         
-        <div class="dropdown-personalizado">
-            <button class="dropdown-toggle" onclick="toggleMenu(event)">
-                <i class="fa-solid fa-bars"></i> Menú Principal
-            </button>
-            <div class="dropdown-menu" id="menuDropdown">
-                <a href="#inicio"><i class="fa-solid fa-house"></i> Inicio</a>
-                <a href="#coleccion"><i class="fa-solid fa-shirt"></i> Colección</a>
-                <a href="#contacto"><i class="fa-solid fa-headset"></i> Contacto</a>
+        <!-- Contenedor derecho para que el carrito y el menú queden alineados arriba -->
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <!-- Botón del Carrito Superior -->
+            <div id="btn-flotante-carrito" class="carrito-header-btn" onclick="abrirModalCarrito()">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span id="contador-carrito">0</span>
+            </div>
+
+            <!-- Menú Principal -->
+            <div class="dropdown-personalizado">
+                <button class="dropdown-toggle" onclick="toggleMenu(event)">
+                    <i class="fa-solid fa-bars"></i> Menú Principal
+                </button>
+                <div class="dropdown-menu" id="menuDropdown">
+                    <a href="#inicio"><i class="fa-solid fa-house"></i> Inicio</a>
+                    <a href="#coleccion"><i class="fa-solid fa-shirt"></i> Colección</a>
+                    <a href="#contacto"><i class="fa-solid fa-headset"></i> Contacto</a>
+                </div>
             </div>
         </div>
     </header>
+
+    <!-- Modal / Panel del Carrito -->
+<div id="modalCarrito" class="lightbox-modal" style="display: none;" onclick="if(event.target.id === 'modalCarrito') cerrarModalCarrito();">
+    <div class="modal-carrito-contenido">
+        <button onclick="cerrarModalCarrito()" style="position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 24px; cursor: pointer; color: #666;">&times;</button>
+        <h3 style="margin-top: 0; color: #333; border-bottom: 2px solid #f0f0f0; padding-bottom: 12px; font-size: 18px;">Tu Carrito de Compras</h3>
+        
+        <!-- Lista con scroll independiente -->
+        <div id="carrito-items">
+            <!-- Dinámico -->
+        </div>
+
+        <!-- Zona fija inferior (Total y Botón de WhatsApp siempre visibles) -->
+        <div style="border-top: 2px solid #eee; padding-top: 12px; margin-top: auto;">
+            <div id="carrito-total-container" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; font-weight: bold; font-size: 16px; color: #333;">
+                <!-- El total se inyecta aquí -->
+            </div>
+
+            <button onclick="finalizarCompraWhatsApp()" style="width: 100%; background-color: #25d366; color: white; border: none; padding: 14px; border-radius: 30px; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 15px; transition: background 0.3s;">
+                <i class="fa-brands fa-whatsapp" style="font-size: 20px;"></i> Enviar pedido por WhatsApp
+            </button>
+        </div>
+    </div>
+</div>
 
     <!-- Sección Principal (Inicio) con el video de banner de fondo -->
     <section id="inicio" class="hero">

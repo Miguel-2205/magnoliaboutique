@@ -96,6 +96,16 @@ const productos = [
     },
     {
         categoria: "camperas",
+        nombre: "Jean Negra - A000",
+        talles: "T1 - T2 - T3 - T4",
+        precio: "$00.000",
+        destacado: false, // <-- Esto indica que es destacado
+        imagenes: [
+            "img/camperas/jean-negra/1.JPG"
+        ]
+    },
+    {
+        categoria: "camperas",
         nombre: "Campera Plush - A501",
         talles: "T3, T6",
         precio: "$20.000",
@@ -275,6 +285,15 @@ const productos = [
     },
     {
         categoria: "remeras",
+        nombre: "Remeron Nevado - A0000",
+        talles: "T4 - T6",
+        precio: "$00.000",
+        destacado: false,
+        imagenes: ["img/remeras/remeron-nevado/1.jpg"
+        ]
+    },
+    {
+        categoria: "remeras",
         nombre: "Manga Larga - A2009",
         talles: "L, 2XL",
         precio: "$8.000",
@@ -378,6 +397,37 @@ const productos = [
         ]
     },
     {
+        categoria: "remeras",
+        nombre: "Remera de Rayas - A0000",
+        talles: "Talle Unico",
+        precio: "$00.000",
+        destacado: false,
+        imagenes: ["img/remeras/rayas/1.jpg",
+            "img/remeras/rayas/2.jpg",
+            "img/remeras/rayas/3.jpg"
+        ]
+    },
+    {
+        categoria: "remeras",
+        nombre: "Morley con Cierre - A2549",
+        talles: "Talle Unico",
+        precio: "$11.000",
+        destacado: false,
+        imagenes: ["img/remeras/luna/1.jpg",
+            "img/remeras/luna/2.jpg",
+            "img/remeras/luna/3.jpg",
+            "img/remeras/luna/4.jpg"
+        ]
+    },
+    {
+        categoria: "remeras",
+        nombre: "Pupera Neveda - A0000",
+        talles: "Talle Unico",
+        precio: "$00.000",
+        destacado: false,
+        imagenes: ["img/remeras/pupera/1.jpg"
+        ]
+    },{
         categoria: "remeras",
         nombre: "Morley con Cierre - A2549",
         talles: "Talle Unico",

@@ -1,6 +1,140 @@
-// --- VARIABLES GLOBALES PARA EL LIGHTBOX ---
+// --- VARIABLES GLOBALES PARA EL LIGHTBOX Y EL CARRITO ---
 let lightboxImgsArray = [];
 let lightboxIndexActual = 0;
+let carrito = [];
+
+// --- FUNCIONES DEL CARRITO DE COMPRAS CON CÁLCULO DE TOTAL ---
+
+function agregarAlCarrito(nombre, precio, talleSeleccionado) {
+    carrito.push({
+        nombre: nombre,
+        precioTexto: precio, // Guardamos el texto original para mostrar
+        precioNumerico: limpiarPrecio(precio), // Convertimos a número para sumar
+        talle: talleSeleccionado
+    });
+    
+    actualizarContadorCarrito();
+    actualizarVistaCarrito();
+    
+    // Efecto de latido / pulso profesional en el botón superior
+    const btnCarrito = document.getElementById("btn-flotante-carrito");
+    if (btnCarrito) {
+        btnCarrito.classList.add("animar-latido");
+        setTimeout(() => {
+            btnCarrito.classList.remove("animar-latido");
+        }, 400);
+    }
+}
+
+function actualizarContadorCarrito() {
+    const contador = document.getElementById("contador-carrito");
+    const btnCarrito = document.getElementById("btn-flotante-carrito");
+    
+    if (contador) {
+        contador.innerText = carrito.length;
+    }
+
+    // Cambia al estilo con color/activo si tiene productos, o vuelve a la normalidad si está vacío
+    if (btnCarrito) {
+        if (carrito.length > 0) {
+            btnCarrito.classList.add("tiene-productos");
+        } else {
+            btnCarrito.classList.remove("tiene-productos");
+        }
+    }
+}
+
+// Función auxiliar para transformar "$28.000" o "$18.500" en un número real (28000)
+function limpiarPrecio(precioStr) {
+    if (!precioStr) return 0;
+    // Remueve el signo de pesos, puntos y espacios
+    let limpio = precioStr.replace('$', '').replace(/\./g, '').trim();
+    return parseFloat(limpio) || 0;
+}
+
+function actualizarVistaCarrito() {
+    const contenedorItems = document.getElementById("carrito-items");
+    const contenedorTotal = document.getElementById("carrito-total-container");
+    if (!contenedorItems) return;
+
+    if (carrito.length === 0) {
+        contenedorItems.innerHTML = `<p style="text-align: center; color: #777; padding: 20px;">Tu carrito está vacío.</p>`;
+        if (contenedorTotal) contenedorTotal.innerHTML = "";
+        return;
+    }
+
+    let htmlItems = "";
+    let totalGeneral = 0;
+
+    carrito.forEach((item, index) => {
+        totalGeneral += item.precioNumerico;
+        htmlItems += `
+            <div class="carrito-item" style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #f2f2f2;">
+                <div style="padding-right: 10px;">
+                    <strong style="font-size: 14px; display: block; color: #333;">${item.nombre}</strong>
+                    <span style="font-size: 12px; color: #666;">Talle: ${item.talle.toUpperCase()} | ${item.precioTexto}</span>
+                </div>
+                <button onclick="eliminarDelCarrito(${index})" style="background: none; border: none; color: #e74c3c; cursor: pointer; font-size: 16px; padding: 5px;"><i class="fa-solid fa-trash"></i></button>
+            </div>
+        `;
+    });
+
+    contenedorItems.innerHTML = htmlItems;
+
+    // Renderiza el total fijo abajo para que no se mueva con el scroll
+    if (contenedorTotal) {
+        let totalFormateado = totalGeneral.toLocaleString('es-AR');
+        contenedorTotal.innerHTML = `
+            <span>Total:</span>
+            <span style="color: #e74c3c;">$${totalFormateado}</span>
+        `;
+    }
+}
+
+function eliminarDelCarrito(index) {
+    carrito.splice(index, 1);
+    actualizarContadorCarrito();
+    actualizarVistaCarrito();
+}
+
+function abrirModalCarrito() {
+    const modal = document.getElementById("modalCarrito");
+    if (modal) {
+        modal.classList.add("activo");
+        modal.style.display = "flex"; // Forzamos la visualización
+    }
+    actualizarVistaCarrito(); // Dibuja la lista al abrir
+}
+
+function cerrarModalCarrito() {
+    const modal = document.getElementById("modalCarrito");
+    if (modal) {
+        modal.classList.remove("activo");
+        modal.style.display = "none";
+    }
+}
+
+function finalizarCompraWhatsApp() {
+    if (carrito.length === 0) {
+        alert("Tu carrito está vacío.");
+        return;
+    }
+
+    let mensaje = "¡Hola! Me gustaría hacer el siguiente pedido:\n\n";
+    let totalGeneral = 0;
+
+    carrito.forEach((item, index) => {
+        totalGeneral += item.precioNumerico;
+        mensaje += `${index + 1}. *${item.nombre}* - Talle: ${item.talle} - ${item.precioTexto}\n`;
+    });
+
+    let totalFormateado = totalGeneral.toLocaleString('es-AR');
+    mensaje += `\n*TOTAL A PAGAR: $${totalFormateado}*\n`;
+    mensaje += `\n¿Me confirman stock y datos para el pago por favor?`;
+
+    const linkWp = `https://api.whatsapp.com/send?phone=${CONFIG.telefonoWhatsApp}&text=${encodeURIComponent(mensaje)}`;
+    window.open(linkWp, '_blank');
+}
 
 // --- 1. Función para mover el carrusel de categorías (PC) ---
 function moverCarruselCat(boton, direccion) {
@@ -43,7 +177,6 @@ function cambiarSlide(galeriaId, direccion) {
 function abrirLightbox(imagenesList, indiceInicial, elementoImg) {
     lightboxImgsArray = imagenesList;
     
-    // Buscamos con precisión quirúrgica cuál es la slide activa actualmente en esa tarjeta
     if (elementoImg) {
         const galeriaCard = elementoImg.closest('.galeria-manual');
         if (galeriaCard) {
@@ -90,7 +223,7 @@ function actualizarImagenLightbox() {
     if (!imgModal) return;
 
     imgModal.src = lightboxImgsArray[lightboxIndexActual];
-    imgModal.classList.remove("zoom"); // Resetear zoom al cambiar de foto
+    imgModal.classList.remove("zoom");
 
     if (lightboxImgsArray.length <= 1) {
         btnIzq.classList.add("oculta");
@@ -113,15 +246,11 @@ function cambiarSlideLightbox(direccion) {
 
 function cerrarLightbox() {
     const modal = document.getElementById("lightboxModal");
-    if (modal) {
-        modal.classList.remove("activo");
-    }
+    if (modal) modal.classList.remove("activo");
 }
 
 function cerrarLightboxFuera(event) {
-    if (event.target.id === "lightboxModal") {
-        cerrarLightbox();
-    }
+    if (event.target.id === "lightboxModal") cerrarLightbox();
 }
 
 function toggleZoom(img) {
@@ -172,9 +301,8 @@ function renderizarProductos(productosAMostrar) {
             });
 
             const estiloFlechas = tieneMultiplesImgs ? "" : "style='display: none;'";
-            const textoWp = `Hola! Me interesa la prenda "${prod.nombre}" (Talles: ${prod.talles}) que vi en la tienda a ${prod.precio}. ¿Tendrán stock?`;
-            const linkWp = `https://api.whatsapp.com/send?phone=${CONFIG.telefonoWhatsApp}&text=${encodeURIComponent(textoWp)}`;
 
+            // AQUÍ CAMBIAMOS EL BOTÓN DIRECTO POR EL DE AGREGAR AL CARRITO
             htmlContenido += `
                 <div class="producto-card">
                     <div class="galeria-manual" id="${galeriaId}">
@@ -188,7 +316,7 @@ function renderizarProductos(productosAMostrar) {
                         <h3>${prod.nombre}</h3>
                         <p class="talles">TALLES DISPONIBLES: ${prod.talles.toUpperCase()}</p>
                         <p class="precio">${prod.precio}</p>
-                        <a href="${linkWp}" target="_blank" class="btn-lo-quiero">LO QUIERO</a>
+                        <button class="btn-lo-quiero" onclick="agregarAlCarrito('${prod.nombre}', '${prod.precio}', '${prod.talles}')">AGREGAR AL CARRITO</button>
                     </div>
                 </div>
             `;
@@ -204,7 +332,6 @@ function renderizarProductos(productosAMostrar) {
 
     contenedor.innerHTML = htmlContenido;
     
-    // Reconectamos controles y efectos después de renderizar el HTML nuevo
     setTimeout(() => {
         verificarFlechasCarrusel();
         actualizarTarjetaActivaCelular();
