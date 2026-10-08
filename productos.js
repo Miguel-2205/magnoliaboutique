@@ -94,6 +94,48 @@ const productos = [
             "img/calzas/oxford/2.jpg"
         ]
     },
+     {
+        categoria: "calzas",
+        nombre: "Calza Chupin - A2008",
+        talles: "1, 2, 3, 4, 5, 6",
+        precio: "$13.500",
+        destacado: false,
+        imagenes: ["img/calzas/lisas/1.jpg",
+            "img/calzas/lisas/2.jpg"
+        ]
+    },
+     {
+        categoria: "calzas",
+        nombre: "Calza Biker - A2078",
+        talles: "3, 4, 5, 6",
+        precio: "$8.000",
+        destacado: false,
+        imagenes: ["img/calzas/biker/1.jpg",
+            "img/calzas/biker/2.jpg"
+        ]
+    },
+    {
+        categoria: "camperas",
+        nombre: "Campera Roma - A531",
+        talles: "T2 - T3 - T4 - T5",
+        precio: "$32.000",
+        destacado: false, // <-- Esto indica que es destacado
+        imagenes: [
+            "img/camperas/simil-cuero/1.jpg",
+            "img/camperas/simil-cuero/2.jpg"
+        ]
+    },
+    {
+        categoria: "camperas",
+        nombre: "Campera de Cuero - A535",
+        talles: "TM - TL - TXL - TXXL - TXXXL",
+        precio: "$25.000",
+        destacado: false, // <-- Esto indica que es destacado
+        imagenes: [
+            "img/camperas/ecocuero/1.jpg",
+            "img/camperas/ecocuero/2.jpg"
+        ]
+    },
     {
         categoria: "camperas",
         nombre: "Jean Negra - A533",
@@ -185,6 +227,28 @@ const productos = [
             "img/jeans/chupin-brillo/detalle.jpeg",
         ]
     },
+       {
+        categoria: "jeans",
+        nombre: "Oxford - A2116",
+        talles: "Del 36 al 46",
+        precio: "$29.000",
+        destacado: true, // <-- Esto indica que es destacado
+        imagenes: [
+            "img/jeans/oxford/2.jpg",
+            "img/jeans/oxford/1.jpg"
+        ]
+    },
+    {
+        categoria: "jeans",
+        nombre: "Baggi Oxido - A0000",
+        talles: "Del 36 al 46",
+        precio: "$00.000",
+        destacado: true, // <-- Esto indica que es destacado
+        imagenes: [
+            "img/jeans/baggi-oxido/1.jpg",
+            "img/jeans/baggi-oxido/2.jpg"
+        ]
+    },
     {
         categoria: "jeans",
         nombre: "Cargo - A2121",
@@ -256,7 +320,7 @@ const productos = [
     },
     {
         categoria: "jeans",
-        nombre: "Wide Leg Semi Eslatizado",
+        nombre: "Wide Leg Semi Eslatizado - A2118",
         talles: "36, 40, 42, 44, 46",
         precio: "$41.000",
         destacado: false,
@@ -286,11 +350,31 @@ const productos = [
     },
     {
         categoria: "jogging",
-        nombre: "Joger 2 Lineas",
+        nombre: "Joger 2 Lineas - A2076",
         talles: "T2, T4",
         precio: "$20.000",
         destacado: false,
         imagenes: ["img/jogging/2-lineas/1.jpg"]
+    },
+    {
+        categoria: "jogging",
+        nombre: "Joger Recto - A2108",
+        talles: "TM - TL - TXL - TXXL",
+        precio: "$18.000",
+        destacado: false,
+        imagenes: ["img/jogging/recto-hom/1.jpg",
+            "img/jogging/recto-hom/2.jpg",
+        ]
+    },
+    {
+        categoria: "jogging",
+        nombre: "Joger C/ Puño - A2107",
+        talles: "TM - TL - TXL - TXXL",
+        precio: "$18.000",
+        destacado: false,
+        imagenes: ["img/jogging/puno-hom/1.jpg",
+            "img/jogging/puno-hom/2.jpg",
+        ]
     },
      {
         categoria: "musculosas",
@@ -344,16 +428,16 @@ const productos = [
     },
     {
         categoria: "remeras",
-        nombre: "Remeron Nevado - A0000",
-        talles: "T4 - T6",
-        precio: "$00.000",
+        nombre: "Remeron Nevado - A2563",
+        talles: "Talle Unico",
+        precio: "$17.000",
         destacado: false,
         imagenes: ["img/remeras/remeron-nevado/1.jpg"
         ]
     },
     {
         categoria: "remeras",
-        nombre: "Manga Larga - A2009",
+        nombre: "Manga Larga - A2509",
         talles: "L, 2XL",
         precio: "$8.000",
         destacado: false,
@@ -436,7 +520,7 @@ const productos = [
     },
       {
         categoria: "remeras",
-        nombre: "Gina",
+        nombre: "Gina - 2554",
         talles: "Talle Unico",
         precio: "$10.000",
         destacado: false,
@@ -457,9 +541,9 @@ const productos = [
     },
     {
         categoria: "remeras",
-        nombre: "Remera de Rayas - A0000",
+        nombre: "Remera de Rayas - A2557",
         talles: "Talle Unico",
-        precio: "$00.000",
+        precio: "$9.000",
         destacado: false,
         imagenes: ["img/remeras/rayas/1.jpg",
             "img/remeras/rayas/2.jpg",
@@ -510,7 +594,7 @@ const productos = [
     },
      {
         categoria: "vestido",
-        nombre: "Sol",
+        nombre: "Sol - A3004",
         talles: "Talle Unico",
         precio: "$12.000",
         destacado: false,
@@ -521,9 +605,9 @@ const productos = [
     },
      {
         categoria: "vestido",
-        nombre: "Paris",
+        nombre: "Paris - A3005",
         talles: "Talle Unico",
-        precio: "$15.000",
+        precio: "$21.000",
         destacado: false,
         imagenes: ["img/vestidos/paris/1.jpg",
             "img/vestidos/paris/2.jpg",
