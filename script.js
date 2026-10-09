@@ -473,3 +473,25 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }, 3500); // 3500 milisegundos = 3.5 segundos
 });
+// --- CARRUSEL AUTOMÁTICO PARA EL BANNER SUPERIOR ---
+document.addEventListener("DOMContentLoaded", () => {
+    setInterval(() => {
+        const contenedorBanner = document.getElementById("bannerCarrusel");
+        if (!contenedorBanner) return;
+
+        const slides = contenedorBanner.querySelectorAll(".banner-sorteo-img");
+        if (slides.length <= 1) return;
+
+        let indexActual = Array.from(slides).findIndex(img => img.classList.contains("activa"));
+        if (indexActual === -1) indexActual = 0;
+
+        slides[indexActual].classList.remove("activa");
+
+        let nuevoIndex = indexActual + 1;
+        if (nuevoIndex >= slides.length) {
+            nuevoIndex = 0;
+        }
+
+        slides[nuevoIndex].classList.add("activa");
+    }, 4000); // Rota cada 4 segundos
+});

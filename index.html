@@ -37,21 +37,23 @@
         </div>
     </header>
 
-    <!-- BANNER ÚNICO DEL SORTEO -->
-    <div class="banner-sorteo-fondo" onclick="abrirLightbox(['img/banner/banner-sorteo.jpg'], 0, null)" title="Haz clic para ampliar"></div>
-        <img src="img/banner/banner-sorteo.jpg" alt="Sorteo Día de la Madre" class="banner-sorteo-img" onclick="abrirLightbox(['img/banner/banner-sorteo.jpg'], 0, this)">
+  <!-- BANNER ÚNICO DEL SORTEO -->
+    <!-- BANNER ROTATIVO (CARRUSEL DE IMÁGENES) -->
+    <div class="banner-sorteo-container" id="bannerCarrusel">
+        <img src="img/banner/banner-sorteo.jpg" alt="Banner 1" class="banner-sorteo-img activa" onclick="abrirLightbox(['img/banner/banner-sorteo.jpg', 'img/banner/banner-segunda.jpg'], 0, this)">
+        <img src="img/banner/banner-segunda.jpg" alt="Banner 2" class="banner-sorteo-img" onclick="abrirLightbox(['img/banner/banner-sorteo.jpg', 'img/banner/banner-segunda.jpg'], 1, this)">
     </div>
 
     <!-- Modal / Panel del Carrito -->
-<div id="modalCarrito" class="lightbox-modal" style="display: none;" onclick="if(event.target.id === 'modalCarrito') cerrarModalCarrito();">
-    <div class="modal-carrito-contenido">
-        <button onclick="cerrarModalCarrito()" style="position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 24px; cursor: pointer; color: #666;">&times;</button>
-        <h3 style="margin-top: 0; color: #333; border-bottom: 2px solid #f0f0f0; padding-bottom: 12px; font-size: 18px;">Tu Carrito de Compras</h3>
-        
-        <!-- Lista con scroll independiente -->
-        <div id="carrito-items">
-            <!-- Dinámico -->
-        </div>
+    <div id="modalCarrito" class="lightbox-modal" style="display: none;" onclick="if(event.target.id === 'modalCarrito') cerrarModalCarrito();">
+        <div class="modal-carrito-contenido">
+            <button onclick="cerrarModalCarrito()" style="position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 24px; cursor: pointer; color: #666;">&times;</button>
+            <h3 style="margin-top: 0; color: #333; border-bottom: 2px solid #f0f0f0; padding-bottom: 12px; font-size: 18px;">Tu Carrito de Compras</h3>
+            
+            <!-- Lista con scroll independiente -->
+            <div id="carrito-items">
+                <!-- Dinámico -->
+            </div>
 
         <!-- Zona fija inferior (Total y Botón de WhatsApp siempre visibles) -->
         <div style="border-top: 2px solid #eee; padding-top: 12px; margin-top: auto;">

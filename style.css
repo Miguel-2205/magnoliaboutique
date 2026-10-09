@@ -745,29 +745,37 @@ body {
     background-color: #ccc;
     border-radius: 10px;
 }
-/* --- BANNER ADAPTABLE AUTOMÁTICO PARA CUALQUIER PANTALLA --- */
-.banner-sorteo-fondo {
+/* --- CARRUSEL DEL BANNER ADAPTABLE --- */
+.banner-sorteo-container {
     width: 100%;
-    /* Altura adaptable: en celulares se adapta a un tamaño cómodo y en compu se expande más */
-    height: 220px; 
-    background-image: url('img/banner/banner-sorteo.jpg');
-    background-size: cover; /* Hace que la imagen cubra todo el ancho sin deformarse */
-    background-position: center; /* Centra la imagen para que siempre se vea lo más importante */
-    background-repeat: no-repeat;
-    cursor: pointer;
+    height: 250px; /* Altura para celulares */
     position: relative;
+    overflow: hidden;
+    background-color: #f9f9f9;
     z-index: 990;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    transition: filter 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
 }
 
-.banner-sorteo-fondo:hover {
-    filter: brightness(1.03); /* Sutil brillo al pasar el mouse o tocar */
+.banner-sorteo-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Llena todo el espacio de punta a punta sin que se vea chica */
+    object-position: center;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    cursor: pointer;
 }
 
-/* Ajuste automático para pantallas de computadora (se ve más alto y amplio) */
+.banner-sorteo-img.activa {
+    opacity: 1;
+}
+
+/* Ajuste de altura automático para computadoras */
 @media (min-width: 768px) {
-    .banner-sorteo-fondo {
-        height: 380px; 
+    .banner-sorteo-container {
+        height: 400px; 
     }
 }
