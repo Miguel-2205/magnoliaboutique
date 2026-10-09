@@ -745,27 +745,29 @@ body {
     background-color: #ccc;
     border-radius: 10px;
 }
-/* --- ESTILO PARA EL BANNER ÚNICO DEL SORTEO --- */
-.banner-sorteo-container {
+/* --- BANNER ADAPTABLE AUTOMÁTICO PARA CUALQUIER PANTALLA --- */
+.banner-sorteo-fondo {
     width: 100%;
-    background-color: #fff5f7;
-    text-align: center;
-    overflow: hidden;
+    /* Altura adaptable: en celulares se adapta a un tamaño cómodo y en compu se expande más */
+    height: 220px; 
+    background-image: url('img/banner/banner-sorteo.jpg');
+    background-size: cover; /* Hace que la imagen cubra todo el ancho sin deformarse */
+    background-position: center; /* Centra la imagen para que siempre se vea lo más importante */
+    background-repeat: no-repeat;
+    cursor: pointer;
     position: relative;
     z-index: 990;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: filter 0.3s ease;
 }
 
-.banner-sorteo-img {
-    width: 100%;
-    max-width: 1293px; /* Ancho máximo para que en PC no se deforme demasiado */
-    height: auto;
-    display: block;
-    margin: 0 auto;
-    cursor: pointer;
-    transition: transform 0.3s ease;
+.banner-sorteo-fondo:hover {
+    filter: brightness(1.03); /* Sutil brillo al pasar el mouse o tocar */
 }
 
-.banner-sorteo-img:hover {
-    transform: scale(1.01); /* Sutil efecto al pasar el mouse */
+/* Ajuste automático para pantallas de computadora (se ve más alto y amplio) */
+@media (min-width: 768px) {
+    .banner-sorteo-fondo {
+        height: 380px; 
+    }
 }
