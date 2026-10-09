@@ -737,3 +737,113 @@ body {
         display: none !important;
     }
 }
+/* --- ESTILOS PARA EL BUSCADOR --- */
+.buscador-container {
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    /* En celulares achicamos un poquito el input para que no ocupe demasiado espacio en el header */
+    .buscador-container input {
+        width: 90px !important;
+    }
+    .buscador-container input:focus {
+        width: 130px !important;
+    }
+}
+/* --- CORRECCIÓN DEL BUSCADOR EN CELULARES PARA QUE NO SE CORRA --- */
+@media (max-width: 768px) {
+    .header > div {
+        gap: 6px !important; /* Reduce un poco el espacio entre elementos del header */
+    }
+
+    .buscador-container {
+        width: 105px !important; /* Ancho fijo compacto para que entre cómodo en celulares */
+        max-width: 105px !important;
+        padding: 5px 8px !important;
+        transition: width 0.3s ease !important;
+    }
+
+    /* Evitamos que se expanda demasiado al hacer clic para que no pise el menú */
+    .buscador-container input {
+        width: 75px !important;
+        font-size: 0.8rem !important;
+    }
+
+    .buscador-container:focus-within {
+        width: 135px !important;
+    }
+
+    .buscador-container:focus-within input {
+        width: 105px !important;
+    }
+}
+/* --- ORGANIZACIÓN DEL HEADER Y EL BUSCADOR RESPONSIVE --- */
+.header {
+    display: flex;
+    flex-direction: column; /* Por defecto en compu se adapta, pero lo controlamos abajo */
+    padding: 15px 30px;
+    gap: 0;
+}
+
+.header-fila-superior {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+/* Estilos base del buscador */
+.buscador-container {
+    display: flex;
+    align-items: center;
+    background: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 25px;
+    padding: 6px 15px;
+    gap: 8px;
+}
+
+.buscador-container input {
+    border: none;
+    background: transparent;
+    outline: none;
+    font-family: var(--fuente-principal);
+    font-size: 0.9rem;
+    width: 160px;
+}
+
+/* --- COMPUTADORAS Y TABLETS GRANDES (Buscador integrado a la derecha) --- */
+@media (min-width: 769px) {
+    .header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .header-fila-superior {
+        width: auto;
+        gap: 20px;
+    }
+    .buscador-container {
+        order: 2; /* Se ubica de manera fluida */
+    }
+}
+
+/* --- CELULARES (El buscador pasa prolijamente abajo del logo/menú) --- */
+@media (max-width: 768px) {
+    .header {
+        padding: 12px 15px;
+        gap: 10px; /* Crea espacio entre la fila de arriba y el buscador */
+    }
+
+    .buscador-container {
+        width: 100% !important; /* Ocupa todo el ancho disponible abajo */
+        max-width: 100% !important;
+        padding: 8px 15px;
+    }
+
+    .buscador-container input {
+        width: 100% !important; /* El input se expande cómodo sin romper nada */
+        font-size: 0.9rem;
+    }
+}

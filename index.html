@@ -11,29 +11,37 @@
     <script src="config.js"></script>
 </head>
 <body>
-    <!-- HEADER CON MENÚ DESPLEGABLE Y CARRITO SUPERIOR -->
+    <!-- HEADER CON LOGO, MENÚ, CARRITO Y BUSCADOR ADAPTABLE -->
     <header class="header">
-        <div class="logo">MAGNOLIA</div>
-        
-        <!-- Contenedor derecho para que el carrito y el menú queden alineados arriba -->
-        <div style="display: flex; align-items: center; gap: 10px;">
-            <!-- Botón del Carrito Superior -->
-            <div id="btn-flotante-carrito" class="carrito-header-btn" onclick="abrirModalCarrito()">
-                <i class="fa-solid fa-cart-shopping"></i>
-                <span id="contador-carrito">0</span>
-            </div>
+        <div class="header-fila-superior">
+            <div class="logo">MAGNOLIA</div>
+            
+            <!-- Contenedor derecho para carrito y menú -->
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <!-- Botón del Carrito Superior -->
+                <div id="btn-flotante-carrito" class="carrito-header-btn" onclick="abrirModalCarrito()">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span id="contador-carrito">0</span>
+                </div>
 
-            <!-- Menú Principal -->
-            <div class="dropdown-personalizado">
-                <button class="dropdown-toggle" onclick="toggleMenu(event)">
-                    <i class="fa-solid fa-bars"></i> Menú Principal
-                </button>
-                <div class="dropdown-menu" id="menuDropdown">
-                    <a href="#inicio"><i class="fa-solid fa-house"></i> Inicio</a>
-                    <a href="#coleccion"><i class="fa-solid fa-shirt"></i> Colección</a>
-                    <a href="#contacto"><i class="fa-solid fa-headset"></i> Contacto</a>
+                <!-- Menú Principal -->
+                <div class="dropdown-personalizado">
+                    <button class="dropdown-toggle" onclick="toggleMenu(event)">
+                        <i class="fa-solid fa-bars"></i> Menú Principal
+                    </button>
+                    <div class="dropdown-menu" id="menuDropdown">
+                        <a href="#inicio"><i class="fa-solid fa-house"></i> Inicio</a>
+                        <a href="#coleccion"><i class="fa-solid fa-shirt"></i> Colección</a>
+                        <a href="#contacto"><i class="fa-solid fa-headset"></i> Contacto</a>
+                    </div>
                 </div>
             </div>
+        </div>
+
+        <!-- Buscador (En compu va arriba a la derecha, en celular baja solo a su propia fila) -->
+        <div class="buscador-container">
+            <i class="fa-solid fa-magnifying-glass" style="color: #888; font-size: 14px;"></i>
+            <input type="text" id="inputBuscador" placeholder="Buscar prendas o categorías..." oninput="filtrarPorBusqueda(this.value)">
         </div>
     </header>
 

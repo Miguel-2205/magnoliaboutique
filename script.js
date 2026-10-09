@@ -472,3 +472,31 @@ document.addEventListener("DOMContentLoaded", () => {
         slides[nuevoIndex].classList.add("activa");
     }, 4000); // Rota cada 4 segundos
 });
+// --- FUNCIÓN DE BÚSQUEDA POR NOMBRE Y CATEGORÍA CON AUTO-SCROLL ---
+function filtrarPorBusqueda(textoBusqueda) {
+    const fuente = typeof listaProductos !== 'undefined' ? listaProductos : (typeof productos !== 'undefined' ? productos : []);
+    if (fuente.length === 0) return;
+
+    const texto = textoBusqueda.toLowerCase().trim();
+
+    if (texto === "") {
+        renderizarProductos(fuente);
+        return;
+    }
+
+    // Filtramos si el nombre o la categoría coinciden con lo que escribiste
+    const resultados = fuente.filter(p => {
+        const nombreProd = p.nombre ? p.nombre.toLowerCase() : "";
+        const categoriaProd = p.categoria ? p.categoria.toLowerCase() : "";
+        
+        return nombreProd.includes(texto) || categoriaProd.includes(texto);
+    });
+
+    renderizarProductos(resultados);
+
+    // Hace scroll automático hacia la sección de colección para que los resultados queden a la vista
+    const seccionColeccion = document.getElementById("coleccion");
+    if (seccionColeccion) {
+        seccionColeccion.scrollIntoView({ behavior: 'smooth' });
+    }
+}
