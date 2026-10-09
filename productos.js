@@ -116,13 +116,13 @@ const productos = [
     },
     {
         categoria: "camperas",
-        nombre: "Campera Roma - A531",
-        talles: "T2 - T3 - T4 - T5",
-        precio: "$32.000",
+        nombre: "Campera Algodon Rustico - A534",
+        talles: "Talle del 1 al 5 - Disponible en varios colores",
+        precio: "$31.000",
         destacado: false, // <-- Esto indica que es destacado
         imagenes: [
-            "img/camperas/simil-cuero/1.jpg",
-            "img/camperas/simil-cuero/2.jpg"
+            "img/camperas/rustico/1.jpg",
+            "img/camperas/rustico/2.jpg"
         ]
     },
     {
@@ -227,9 +227,20 @@ const productos = [
             "img/jeans/chupin-brillo/detalle.jpeg",
         ]
     },
-       {
+    {
         categoria: "jeans",
-        nombre: "Oxford - A2116",
+        nombre: "Short Pollera - A2120",
+        talles: "Del 34 al 44",
+        precio: "$30.000",
+        destacado: true, // <-- Esto indica que es destacado
+        imagenes: [
+            "img/jeans/pollera/1.jpg",
+            "img/jeans/pollera/2.jpg"
+        ]
+    },
+    {
+        categoria: "jeans",
+        nombre: "Oxford Oxido - A2116",
         talles: "Del 36 al 46",
         precio: "$29.000",
         destacado: true, // <-- Esto indica que es destacado
@@ -238,11 +249,22 @@ const productos = [
             "img/jeans/oxford/1.jpg"
         ]
     },
+       {
+        categoria: "jeans",
+        nombre: "Oxford Nevado - A2117",
+        talles: "Del 36 al 46",
+        precio: "$29.000",
+        destacado: true, // <-- Esto indica que es destacado
+        imagenes: [
+            "img/jeans/oxford-nevado/2.jpg",
+            "img/jeans/oxford-nevado/1.jpg"
+        ]
+    },
     {
         categoria: "jeans",
-        nombre: "Baggi Oxido - A0000",
+        nombre: "Baggi Oxido - A2124",
         talles: "Del 36 al 46",
-        precio: "$00.000",
+        precio: "$42.000",
         destacado: true, // <-- Esto indica que es destacado
         imagenes: [
             "img/jeans/baggi-oxido/1.jpg",
@@ -328,6 +350,16 @@ const productos = [
             "img/jeans/widleg-sem/2.jpg"
         ]
     },
+     {
+        categoria: "jogging",
+        nombre: "Wide Leg - A2123",
+        talles: "Talle del 2 al 5 - Disponible en gris, negro y chocolate",
+        precio: "$21.000",
+        destacado: false,
+        imagenes: ["img/jogging/wideleg/1.jpg",
+            "img/jogging/wideleg/2.jpg"
+        ]
+    },
     {
         categoria: "jogging",
         nombre: "Joger con Puño de Mujer - A2059",
@@ -376,6 +408,16 @@ const productos = [
             "img/jogging/puno-hom/2.jpg",
         ]
     },
+    {
+        categoria: "musculosas",
+        nombre: "Musculosa Brodery - A2573",
+        talles: "Talle 2,3 y 5",
+        precio: "$9.000",
+        destacado: false,
+        imagenes: ["img/musculosas/brodery/1.jpg",
+            "img/musculosas/brodery/2.jpg"
+        ]
+    },
      {
         categoria: "musculosas",
         nombre: "Bremer - A2540",
@@ -387,7 +429,67 @@ const productos = [
             "img/musculosas/bremer/3.jpg"
         ]
     },
+       {
+        categoria: "pantalones",
+        nombre: "Palazo de Crep - A2125",
+        talles: "Talle del 2 al 6 - Disponible en negro y beige",
+        precio: "$30.000",
+        destacado: false,
+        imagenes: ["img/pantalones/crep/1.jpg",
+            "img/pantalones/crep/2.jpg"
+        ]
+    },
+    {
+        categoria: "remeras",
+        nombre: "Remera Bordada New York - A2534",
+        talles: "Talle Unico - Disponible en varios colores",
+        precio: "$13.000",
+        destacado: false,
+        imagenes: ["img/remeras/newyork/1.jpg",
+            "img/remeras/newyork/2.jpg"
+        ]
+    },
      {
+        categoria: "remeras",
+        nombre: "Kimono - A2571",
+        talles: "Talle Unico - Disponible tostado, verde agua y beige",
+        precio: "$15.000",
+        destacado: false,
+        imagenes: ["img/remeras/kimono/1.jpg",
+            "img/remeras/kimono/2.jpg"
+        ]
+    },
+    {
+        categoria: "remeras",
+        nombre: "Remera Calada - A2578",
+        talles: "Talle Unico - Disponible en beige, negro y blanco",
+        precio: "$11.000",
+        destacado: false,
+        imagenes: ["img/remeras/calada/1.jpg",
+            "img/remeras/calada/2.jpg"
+        ]
+    },
+     {
+        categoria: "remeras",
+        nombre: "Strass - A2574",
+        talles: "Talle 2 y 4 - Disponible en gris, choco, tostado, negro y blanco",
+        precio: "$15.000",
+        destacado: false,
+        imagenes: ["img/remeras/strass/1.jpg",
+            "img/remeras/strass/2.jpg"
+        ]
+    },
+    {
+        categoria: "remeras",
+        nombre: "Remera Cala Bordada - A2551",
+        talles: "Talle del M al XXXL - Disponible en varios colores",
+        precio: "$17.000",
+        destacado: false,
+        imagenes: ["img/remeras/cala/1.jpg",
+            "img/remeras/cala/2.jpg"
+        ]
+    },
+      {
         categoria: "remeras",
         nombre: "Tachas - A2566",
         talles: "Talle Unico",
@@ -396,6 +498,26 @@ const productos = [
         imagenes: ["img/remeras/tachas/1.jpg",
             "img/remeras/tachas/2.jpg",
             "img/remeras/tachas/3.jpg"
+        ]
+    },
+     {
+        categoria: "remeras",
+        nombre: "Rmera Pili - A2576",
+        talles: "Talle Unico - Disponible en choco, tostado, negro y blanco",
+        precio: "$10.000",
+        destacado: false,
+        imagenes: ["img/remeras/pili/1.jpg",
+            "img/remeras/pili/2.jpg"
+        ]
+    },
+    {
+        categoria: "remeras",
+        nombre: "Pupera Panal - A2559",
+        talles: "Talle Unico",
+        precio: "$8.000",
+        destacado: false,
+        imagenes: ["img/remeras/pupera-panal/1.jpg",
+            "img/remeras/pupera-panal/2.jpg",
         ]
     },
     {
@@ -552,14 +674,12 @@ const productos = [
     },
     {
         categoria: "remeras",
-        nombre: "Morley con Cierre - A2549",
-        talles: "Talle Unico",
-        precio: "$11.000",
+        nombre: "Body Fiore - A2564",
+        talles: "Talle 2 y 4",
+        precio: "$13.000",
         destacado: false,
-        imagenes: ["img/remeras/luna/1.jpg",
-            "img/remeras/luna/2.jpg",
-            "img/remeras/luna/3.jpg",
-            "img/remeras/luna/4.jpg"
+        imagenes: ["img/remeras/body-fiore/1.jpg",
+            "img/remeras/body-fiore/2.jpg"
         ]
     },
     {
@@ -580,6 +700,26 @@ const productos = [
             "img/remeras/luna/2.jpg",
             "img/remeras/luna/3.jpg",
             "img/remeras/luna/4.jpg"
+        ]
+    },
+     {
+        categoria: "vestido",
+        nombre: "Roma - A3009",
+        talles: "Talle Unico",
+        precio: "$16.000",
+        destacado: false,
+        imagenes: ["img/vestidos/roma/1.jpg",
+            "img/vestidos/roma/2.jpg"
+        ]
+    },
+    {
+        categoria: "vestido",
+        nombre: "Olivia - A3010",
+        talles: "Talle Unico - Disponible en choco, negro y gris",
+        precio: "$18.000",
+        destacado: false,
+        imagenes: ["img/vestidos/olivia/1.jpg",
+            "img/vestidos/olivia/2.jpg"
         ]
     },
     {
@@ -613,6 +753,16 @@ const productos = [
             "img/vestidos/paris/2.jpg",
             "img/vestidos/paris/3.jpg",
             "img/vestidos/paris/4.jpg"
+        ]
+    },
+     {
+        categoria: "vestido",
+        nombre: "Desire - A3008",
+        talles: "Talle Unico",
+        precio: "$17.000",
+        destacado: false,
+        imagenes: ["img/vestidos/desire/1.jpg",
+            "img/vestidos/desire/2.jpg"
         ]
     }
 ];

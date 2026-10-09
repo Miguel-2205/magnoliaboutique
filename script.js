@@ -450,3 +450,26 @@ document.addEventListener("DOMContentLoaded", () => {
         grid.addEventListener("scroll", actualizarTarjetaActivaCelular);
     });
 });
+// --- CARRUSEL AUTOMÁTICO DE IMÁGENES EN PRODUCTOS ---
+document.addEventListener("DOMContentLoaded", () => {
+    // Intervalo de rotación automática (cada 3.5 segundos)
+    setInterval(() => {
+        const galerias = document.querySelectorAll(".galeria-manual");
+        galerias.forEach(galeria => {
+            const slides = galeria.querySelectorAll(".img-slide");
+            if (slides.length <= 1) return; // Si tiene una sola foto, no hace nada
+
+            let indexActual = Array.from(slides).findIndex(img => img.classList.contains("activa"));
+            if (indexActual === -1) indexActual = 0;
+
+            slides[indexActual].classList.remove("activa");
+
+            let nuevoIndex = indexActual + 1;
+            if (nuevoIndex >= slides.length) {
+                nuevoIndex = 0; // Vuelve a la primera foto
+            }
+
+            slides[nuevoIndex].classList.add("activa");
+        });
+    }, 3500); // 3500 milisegundos = 3.5 segundos
+});
