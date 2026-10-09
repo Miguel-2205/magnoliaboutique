@@ -15,6 +15,7 @@ body {
     background-color: #d9a8a0;
     color: #333;
     scroll-behavior: smooth;
+    overflow-x: hidden; /* Evita el scroll horizontal fantasma */
 }
 
 /* HEADER Y MENÚ DESPLEGABLE PERSONALIZADO */
@@ -106,6 +107,43 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
+/* --- BANNER ROTATIVO SUPERIOR --- */
+.banner-sorteo-container {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    background-color: transparent;
+    z-index: 990;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.banner-sorteo-img {
+    width: 100%;
+    height: auto;
+    display: none; 
+    cursor: pointer;
+}
+
+.banner-sorteo-img.activa {
+    display: block; 
+}
+
+@media (min-width: 768px) {
+    .banner-sorteo-container {
+        height: 400px;
+        background-color: #fff5f7;
+    }
+    
+    .banner-sorteo-img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
 /* SECCIONES Y CATÁLOGO DE PRODUCTOS */
 .seccion-catalogo {
     padding: 40px 20px;
@@ -179,12 +217,12 @@ body {
     opacity: 0;
     transition: opacity 0.4s ease-in-out;
     cursor: pointer;
-    pointer-events: none; /* <--- AGREGA ESTO: bloquea clics en fotos ocultas */
+    pointer-events: none;
 }
 
 .img-slide.activa {
     opacity: 1;
-    pointer-events: auto; /* <--- AGREGA ESTO: solo permite clic en la foto visible */
+    pointer-events: auto;
 }
 
 .flecha-galeria {
@@ -470,7 +508,6 @@ body {
     transform: translateY(-2px);
 }
 
-/* Ocultar la barra de desplazamiento en computadoras */
 @media (min-width: 769px) {
     .grid-productos::-webkit-scrollbar {
         display: none;
@@ -481,54 +518,9 @@ body {
         position: relative;
         scroll-behavior: smooth;
     }
-    
-    .categoria-contenedor {
-        position: relative;
-    }
-
-    .flecha-slider-cat {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background-color: rgba(255, 255, 255, 0.9);
-        border: none;
-        border-radius: 50%;
-        width: 40px;
-        height: 40px;
-        font-size: 18px;
-        cursor: pointer;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-        z-index: 20;
-        display: none;
-        align-items: center;
-        justify-content: center;
-        transition: background-color 0.2s, transform 0.2s;
-    }
-
-    .flecha-slider-cat.activa {
-        display: flex;
-    }
-
-    .flecha-slider-cat:hover {
-        background-color: #fff;
-        transform: translateY(-50%) scale(1.1);
-    }
-
-    .flecha-slider-cat.izquierda {
-        left: -60px;
-    }
-
-    .flecha-slider-cat.derecha {
-        right: -60px;
-    }
 }
 
-/* Ocultar flechas de PC en celulares */
 @media (max-width: 768px) {
-    .flecha-slider-cat {
-        display: none;
-    }
-    
     .benefits {
         flex-direction: column;
         gap: 25px;
@@ -548,29 +540,12 @@ body {
         padding-bottom: 0;
     }
 
- /* --- BLOQUEAR ZOOM MOLESTO AL TOCAR RÁPIDO EN CELULARES --- */
-@media (max-width: 768px) {
-    .grid-productos .producto-card,
-    .galeria-manual,
-    .imagenes-container,
-    .img-slide,
-    .flecha-galeria,
-    .flecha-slider-cat {
-        touch-action: manipulation; /* Desactiva el zoom por doble toque en tarjetas, contenedores y flechas */
-    }
-}
-.grid-productos .producto-card {
+    .grid-productos .producto-card {
         flex: 0 0 82%;
         scroll-snap-align: center;
         transform: scale(0.93);
-        opacity: 0.45; /* Las de los costados se verán más atenuadas */
+        opacity: 0.45;
         transition: transform 0.4s ease, opacity 0.4s ease;
-    }
-
-    .grid-productos .producto-card.activa-centro {
-        transform: scale(1);
-        opacity: 1; /* La del centro se ve totalmente nítida y opacidad completa */
-        z-index: 5;
     }
 
     .grid-productos .producto-card.activa-centro {
@@ -580,7 +555,7 @@ body {
     }
 }
 
-/* --- ESTILOS COMPLETOS PARA EL LIGHTBOX / CARRUSEL EN PANTALLA COMPLETA --- */
+/* Lightbox y Carrito */
 .lightbox-modal {
     display: none;
     position: fixed;
@@ -636,11 +611,6 @@ body {
     z-index: 100000;
 }
 
-.lightbox-cerrar:hover {
-    color: #f39c12;
-}
-
-/* Flechas dentro del Lightbox */
 .lightbox-flecha {
     position: absolute;
     top: 50%;
@@ -653,36 +623,22 @@ body {
     cursor: pointer;
     z-index: 100000;
     border-radius: 50%;
-    transition: background 0.3s;
 }
 
-.lightbox-flecha:hover {
-    background: rgba(255, 255, 255, 0.5);
-}
-
-.lightbox-flecha.izquierda {
-    left: -60px;
-}
-
-.lightbox-flecha.derecha {
-    right: -60px;
-}
-
-/* Ocultar flechas del lightbox si el producto tiene 1 sola imagen */
-.lightbox-flecha.oculta {
-    display: none;
-}
+.lightbox-flecha.izquierda { left: -60px; }
+.lightbox-flecha.derecha { right: -60px; }
+.lightbox-flecha.oculta { display: none; }
 
 #modalCarrito.activo {
     display: flex !important;
     justify-content: center;
     align-items: center;
 }
-/* --- BOTÓN FLOTANTE DEL CARRITO EN CELULAR (Estilo Burbuja) --- */
+
 .carrito-header-btn {
     position: fixed;
     bottom: 20px;
-    left: 20px; /* Del lado izquierdo, simétrico a WhatsApp */
+    left: 20px;
     background-color: #ffffff;
     color: #333333;
     border: 1px solid #dcdcdc;
@@ -705,7 +661,6 @@ body {
     border-color: #e74c3c !important;
 }
 
-/* Animación de latido */
 @keyframes latidoCarrito {
     0% { transform: scale(1); }
     50% { transform: scale(1.15); }
@@ -715,13 +670,12 @@ body {
     animation: latidoCarrito 0.4s ease-in-out;
 }
 
-/* --- DISEÑO INTERNO DEL MODAL DEL CARRITO (Total Fijo y Scroll Separado) --- */
 .modal-carrito-contenido {
     background: #fff; 
     width: 90%; 
     max-width: 420px; 
     border-radius: 20px; 
-    padding: 20px 20px 15px 20px; 
+    padding: 20px; 
     position: relative; 
     box-shadow: 0 10px 30px rgba(0,0,0,0.25);
     display: flex;
@@ -729,67 +683,57 @@ body {
     max-height: 85vh;
 }
 
-/* Contenedor de la lista con scroll corrido hacia la izquierda para no pisar el tachito */
 #carrito-items {
     overflow-y: auto; 
     max-height: 40vh; 
     margin: 10px 0; 
-    padding-right: 12px; /* Espacio para que la barra de scroll no pise los iconos */
+    padding-right: 12px;
 }
-
-/* Personalización elegante de la barra de desplazamiento */
-#carrito-items::-webkit-scrollbar {
-    width: 6px;
-}
-#carrito-items::-webkit-scrollbar-thumb {
-    background-color: #ccc;
-    border-radius: 10px;
-}
-/* --- CARRUSEL DEL BANNER ADAPTABLE (SIN FRANJAS Y FLUIDO) --- */
-.banner-sorteo-container {
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-    background-color: transparent; /* Quitamos el color de fondo para que no se note ningún espacio */
-    z-index: 990;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.banner-sorteo-img {
-    width: 100%;
-    height: auto; /* Se adapta fluidamente a la proporción exacta de la imagen en celulares */
-    display: block;
-    opacity: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-    transition: opacity 0.8s ease-in-out;
-    cursor: pointer;
-}
-
-/* Hacemos que la primera imagen dicte el tamaño para que no queden espacios arriba ni abajo */
-.banner-sorteo-img:first-child {
-    position: relative;
-}
-
-.banner-sorteo-img.activa {
-    opacity: 1;
-    z-index: 2;
-}
-
-/* Ajuste automático para computadoras y tablets (pantallas grandes) */
-@media (min-width: 768px) {
-    .banner-sorteo-container {
-        max-height: 450px;
-        background-color: #000;
-    }
-    
-    .banner-sorteo-img {
-        object-fit: contain;
+/* --- RESTAURAR POSICIÓN DE LAS FLECHAS DE LAS CATEGORÍAS EN PC --- */
+@media (min-width: 769px) {
+    .categoria-contenedor {
         position: relative;
-        max-height: 450px;
+    }
+
+    .flecha-slider-cat {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(255, 255, 255, 0.9);
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+        cursor: pointer;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        z-index: 20;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.2s, transform 0.2s;
+    }
+
+    .flecha-slider-cat.activa {
+        display: flex;
+    }
+
+    .flecha-slider-cat:hover {
+        background-color: #fff;
+        transform: translateY(-50%) scale(1.1);
+    }
+
+    .flecha-slider-cat.izquierda {
+        left: -60px;
+    }
+
+    .flecha-slider-cat.derecha {
+        right: -60px;
+    }
+}
+/* --- OCULTAR FLECHAS DE CATEGORÍA EN CELULARES Y TABLETS --- */
+@media (max-width: 768px) {
+    .flecha-slider-cat {
+        display: none !important;
     }
 }
