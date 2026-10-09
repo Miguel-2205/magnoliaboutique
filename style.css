@@ -745,13 +745,13 @@ body {
     background-color: #ccc;
     border-radius: 10px;
 }
-/* --- CARRUSEL DEL BANNER ADAPTABLE --- */
+/* --- CARRUSEL DEL BANNER ADAPTABLE (CORREGIDO PARA CELULAR) --- */
 .banner-sorteo-container {
     width: 100%;
-    height: 250px; /* Altura para celulares */
+    height: 220px; /* Altura estándar para celular */
     position: relative;
     overflow: hidden;
-    background-color: #f9f9f9;
+    background-color: #fff5f7; /* Color de fondo suave por si queda algún espacio */
     z-index: 990;
     box-shadow: 0 4px 10px rgba(0,0,0,0.08);
 }
@@ -762,7 +762,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Llena todo el espacio de punta a punta sin que se vea chica */
+    object-fit: contain; /* EN CELULAR: Muestra la imagen completa sin recortar ningún detalle */
     object-position: center;
     opacity: 0;
     transition: opacity 0.8s ease-in-out;
@@ -773,9 +773,13 @@ body {
     opacity: 1;
 }
 
-/* Ajuste de altura automático para computadoras */
+/* Ajuste automático para computadoras y tablets (pantallas grandes) */
 @media (min-width: 768px) {
     .banner-sorteo-container {
         height: 400px; 
+    }
+    
+    .banner-sorteo-img {
+        object-fit: cover; /* EN PC: Llena todo el ancho y alto de manera perfecta */
     }
 }
