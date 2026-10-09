@@ -745,41 +745,51 @@ body {
     background-color: #ccc;
     border-radius: 10px;
 }
-/* --- CARRUSEL DEL BANNER ADAPTABLE (CORREGIDO PARA CELULAR) --- */
+/* --- CARRUSEL DEL BANNER ADAPTABLE (SIN FRANJAS Y FLUIDO) --- */
 .banner-sorteo-container {
     width: 100%;
-    height: 220px; /* Altura estándar para celular */
     position: relative;
     overflow: hidden;
-    background-color: #fff5f7; /* Color de fondo suave por si queda algún espacio */
+    background-color: transparent; /* Quitamos el color de fondo para que no se note ningún espacio */
     z-index: 990;
     box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .banner-sorteo-img {
+    width: 100%;
+    height: auto; /* Se adapta fluidamente a la proporción exacta de la imagen en celulares */
+    display: block;
+    opacity: 0;
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* EN CELULAR: Muestra la imagen completa sin recortar ningún detalle */
-    object-position: center;
-    opacity: 0;
     transition: opacity 0.8s ease-in-out;
     cursor: pointer;
 }
 
+/* Hacemos que la primera imagen dicte el tamaño para que no queden espacios arriba ni abajo */
+.banner-sorteo-img:first-child {
+    position: relative;
+}
+
 .banner-sorteo-img.activa {
     opacity: 1;
+    z-index: 2;
 }
 
 /* Ajuste automático para computadoras y tablets (pantallas grandes) */
 @media (min-width: 768px) {
     .banner-sorteo-container {
-        height: 400px; 
+        max-height: 450px;
+        background-color: #000;
     }
     
     .banner-sorteo-img {
-        object-fit: cover; /* EN PC: Llena todo el ancho y alto de manera perfecta */
+        object-fit: contain;
+        position: relative;
+        max-height: 450px;
     }
 }
