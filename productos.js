@@ -335,7 +335,7 @@ const productos = [
         categoria: "jeans",
         nombre: "chupin Azul - A2018",
         talles: "36, 40, 42, 44, 46",
-        precio: "$20.000",
+        precio: "$22.000",
         destacado: false,
         imagenes: ["img/jeans/chupin-azul/1.jpg"
         ]
